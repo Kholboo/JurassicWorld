@@ -9,6 +9,7 @@ public class HUDPanelManager : MonoBehaviour {
     public GameObject levelSlider;
     public Text currentLvlTxt;
     public Text nextLvlTxt;
+    public Text scoreTxt;
     public List<GameObject> tips;
     bool hideTip;
 

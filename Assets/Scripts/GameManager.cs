@@ -5,8 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     private enum States { Start, Play, Pause, GameOver }
-
+    PanelManager panelManager;
     States gameState;
+
+    void Start () {
+        panelManager = GetComponent<PanelManager> ();
+        Application.targetFrameRate = 60;
+
+        if (PlayerPrefs.GetInt ("LevelUp", 0) == 1) {
+            panelManager.CloseHomePanel ();
+            PlayerPrefs.SetInt ("LevelUp", 0);
+            panelManager.OpenHUDPanel ();
+        }
+    }
 
     public void Play () {
         gameState = States.Play;
