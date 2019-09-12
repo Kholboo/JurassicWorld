@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverPanelManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class GameOverPanelManager : MonoBehaviour {
+    GameManager gameManager;
+
+    void Awake () {
+        GameObject canvas = GameObject.Find ("Canvas");
+        gameManager = canvas.GetComponent<GameManager> ();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void OnClickReplayBtn () {
+        gameManager.Replay();
     }
 }

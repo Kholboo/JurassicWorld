@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomePanelManager : MonoBehaviour
-{
+public class HomePanelManager : MonoBehaviour {
+    GameManager gameManager;
+    PanelManager panelManager;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start () {
+        GameObject canvas = GameObject.Find ("Canvas");
+        gameManager = canvas.GetComponent<GameManager> ();
+        panelManager = canvas.GetComponent<PanelManager> ();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void OnClickPlayBtn () {
+        panelManager.CloseHomePanel ();
+        gameManager.Play ();
+        panelManager.OpenHUDPanel ();
     }
 }
