@@ -22,17 +22,22 @@ public class HUDPanelManager : MonoBehaviour {
     void OnEnable () {
         currentLvlTxt.text = levelManager.GetLevel ().ToString ();
         nextLvlTxt.text = (levelManager.GetLevel () + 1).ToString ();
+
+        currentLvlTxt.text = levelManager.GetLevel ().ToString ();
+        nextLvlTxt.text = (levelManager.GetLevel () + 1).ToString ();
+
+        if (gameManager.IsWaiting ()) {
+            tips[0].SetActive (true);
+        }
     }
 
     void Update () {
         if (gameManager.IsPlay ()) {
-            // if (!hideTip) {
-            //     hideTip = true;
+            if (!hideTip) {
+                hideTip = true;
 
-            //     for (int i = 0; i < tips.Count; i++) {
-            //         tips[i].SetActive (false);
-            //     }
-            // }
+                tips[0].SetActive (false);
+            }
         }
     }
 }

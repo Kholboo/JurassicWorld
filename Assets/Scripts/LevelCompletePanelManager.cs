@@ -17,6 +17,7 @@ public class LevelCompletePanelManager : MonoBehaviour {
         GameObject canvas = GameObject.Find ("Canvas");
         gameManager = canvas.GetComponent<GameManager> ();
         scoreManager = canvas.GetComponent<ScoreManager> ();
+        levelManager = canvas.GetComponent<LevelManager> ();
     }
 
     void OnEnable () {

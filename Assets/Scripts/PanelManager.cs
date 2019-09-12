@@ -9,44 +9,34 @@ public class PanelManager : MonoBehaviour {
     public GameObject gameOverPanel;
 
     public void OpenHomePanel () {
-        StartCoroutine (OpenPanel (homePanel));
+        homePanel.SetActive (true);
     }
 
     public void CloseHomePanel () {
-        StartCoroutine (ClosePanel (homePanel));
+        homePanel.SetActive (false);
     }
 
     public void OpenHUDPanel () {
-        StartCoroutine (OpenPanel (hudPanel));
+        hudPanel.SetActive (true);
     }
 
     public void CloseHUDPanel () {
-        StartCoroutine (ClosePanel (hudPanel));
+        hudPanel.SetActive (false);
     }
 
-    public void OpenGameOverPanel () {
-        StartCoroutine (OpenPanel (gameOverPanel));
+    public void OpenGameOvePanel () {
+        gameOverPanel.SetActive (true);
     }
 
     public void CloseGameOverPanel () {
-        StartCoroutine (ClosePanel (gameOverPanel));
+        gameOverPanel.SetActive (false);
     }
 
-    public void OpenLevelCompletePanel () {
-        StartCoroutine (OpenPanel (levelCompletePanel));
+    public void OpenLevelCompletedPanel () {
+        levelCompletePanel.SetActive (true);
     }
 
-    public void CloseLevelCompletePanel () {
-        StartCoroutine (ClosePanel (levelCompletePanel));
-    }
-
-    IEnumerator OpenPanel (GameObject panel) {
-        yield return new WaitForSeconds (0.15f);
-        panel.SetActive (true);
-    }
-
-    IEnumerator ClosePanel (GameObject panel) {
-        yield return new WaitForSeconds (0.15f);
-        panel.SetActive (false);
+    public void CloseLevelCompletedPanel () {
+        levelCompletePanel.SetActive (false);
     }
 }

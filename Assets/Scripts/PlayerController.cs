@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+    GameManager gameManager;
     public enum ControllerType {
         JOYSTICK,
     }
@@ -11,12 +12,24 @@ public class PlayerController : MonoBehaviour {
     float moveSpeed = 10.0f;
     float rotateSpeed = 10.0f;
 
+    void Awake () {
+        GameObject canvas = GameObject.Find ("Canvas");
+        gameManager = canvas.GetComponent<GameManager> ();
+    }
+
     void FixedUpdate () {
-        switch (controllerType) {
-            case ControllerType.JOYSTICK:
-                Vector3 direction = Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal;
-                MoveJoystick (direction);
-                break;
+        if (gameManager.IsWaiting ()) {
+            if (Input.GetMouseButtonDown (0)) {
+                gameManager.Play ();
+            }
+        }
+        if (gameManager.IsPlay ()) {
+            switch (controllerType) {
+                case ControllerType.JOYSTICK:
+                    Vector3 direction = Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal;
+                    MoveJoystick (direction);
+                    break;
+            }
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-    private enum States { Start, Play, Pause, GameOver }
+    private enum States { Start, Play, Waiting, GameOver, Completed }
     PanelManager panelManager;
     States gameState;
 
@@ -15,8 +15,13 @@ public class GameManager : MonoBehaviour {
         if (PlayerPrefs.GetInt ("LevelUp", 0) == 1) {
             panelManager.CloseHomePanel ();
             PlayerPrefs.SetInt ("LevelUp", 0);
+            Waiting ();
             panelManager.OpenHUDPanel ();
         }
+    }
+
+    public void Waiting () {
+        gameState = States.Waiting;
     }
 
     public void Play () {
@@ -27,8 +32,8 @@ public class GameManager : MonoBehaviour {
         gameState = States.GameOver;
     }
 
-    public void Pause () {
-        gameState = States.Pause;
+    public void Completed () {
+        gameState = States.Completed;
     }
 
     public void Replay () {
@@ -41,5 +46,9 @@ public class GameManager : MonoBehaviour {
 
     public bool IsPlay () {
         return gameState == States.Play;
+    }
+
+    public bool IsWaiting () {
+        return gameState == States.Waiting;
     }
 }
