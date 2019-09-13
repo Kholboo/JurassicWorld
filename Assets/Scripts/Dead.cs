@@ -16,7 +16,7 @@ public class Dead : MonoBehaviour {
         if (col.gameObject.tag == "Player") {
             panelManager.CloseHUDPanel ();
             gameManager.GameOver ();
-            panelManager.OpenGameOvePanel ();
+            panelManager.OpenGameOverPanel ();
         }
     }
 }

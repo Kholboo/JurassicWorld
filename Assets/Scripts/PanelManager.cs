@@ -24,7 +24,7 @@ public class PanelManager : MonoBehaviour {
         hudPanel.SetActive (false);
     }
 
-    public void OpenGameOvePanel () {
+    public void OpenGameOverPanel () {
         gameOverPanel.SetActive (true);
     }
 
