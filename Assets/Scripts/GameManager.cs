@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public enum States { Start, Play, Waiting, GameOver, Completed, Replay }
-    States gameState;
-    PanelManager panelManager;
     static GameManager _instance;
     public static GameManager Instance {
         get { return _instance; }
     }
+    States gameState;
+    PanelManager panelManager;
 
     void Start () {
         _instance = this;
@@ -19,10 +19,12 @@ public class GameManager : MonoBehaviour {
         Application.targetFrameRate = 60;
 
         if (PlayerPrefs.GetInt ("LevelUp", 0) == 1) {
-            panelManager.ChangePanelState (PanelManager.Panel.HomePanel, false);
+            panelManager.ChangePanelState (PanelManager.Panels.HomePanel, false);
+
             PlayerPrefs.SetInt ("LevelUp", 0);
             SetState (States.Waiting);
-            panelManager.ChangePanelState (PanelManager.Panel.HUDPanel, true);
+
+            panelManager.ChangePanelState (PanelManager.Panels.HUDPanel, true);
         }
     }
 
@@ -33,13 +35,14 @@ public class GameManager : MonoBehaviour {
     public void SetState (States state) {
         if (state == States.Replay) {
             Replay ();
+
             return;
         }
-        
+
         gameState = state;
     }
 
-    public void Replay () {
+    void Replay () {
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
 }

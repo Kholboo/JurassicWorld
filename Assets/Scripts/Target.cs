@@ -12,9 +12,9 @@ public class Target : MonoBehaviour {
 
     void OnTriggerEnter (Collider col) {
         if (col.gameObject.tag == "Player") {
-            panelManager.ChangePanelState (PanelManager.Panel.HUDPanel, false);
+            panelManager.ChangePanelState (PanelManager.Panels.HUDPanel, false);
             GameManager.Instance.SetState (GameManager.States.Completed);
-            panelManager.ChangePanelState (PanelManager.Panel.LevelCompletePanel, true);
+            panelManager.ChangePanelState (PanelManager.Panels.LevelCompletePanel, true);
         }
     }
 }

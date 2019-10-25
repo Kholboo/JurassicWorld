@@ -12,9 +12,9 @@ public class Dead : MonoBehaviour {
 
     void OnTriggerEnter (Collider col) {
         if (col.gameObject.tag == "Player") {
-            panelManager.ChangePanelState (PanelManager.Panel.HUDPanel, false);
+            panelManager.ChangePanelState (PanelManager.Panels.HUDPanel, false);
             GameManager.Instance.SetState (GameManager.States.GameOver);
-            panelManager.ChangePanelState (PanelManager.Panel.GameOverPanel, true);
+            panelManager.ChangePanelState (PanelManager.Panels.GameOverPanel, true);
         }
     }
 }

@@ -10,8 +10,8 @@ public class HomePanelManager : MonoBehaviour {
     }
 
     public void OnClickPlayBtn () {
-        panelManager.ChangePanelState (PanelManager.Panel.HomePanel, false);
+        panelManager.ChangePanelState (PanelManager.Panels.HomePanel, false);
         GameManager.Instance.SetState (GameManager.States.Waiting);
-        panelManager.ChangePanelState (PanelManager.Panel.HUDPanel, true);
+        panelManager.ChangePanelState (PanelManager.Panels.HUDPanel, true);
     }
 }
