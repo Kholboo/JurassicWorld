@@ -23,6 +23,6 @@ public class GameOverPanelManager : MonoBehaviour {
     }
 
     public void OnClickReplayBtn () {
-        GameManager.Instance.Replay ();
+        GameManager.Instance.SetState (GameManager.States.Replay);
     }
 }

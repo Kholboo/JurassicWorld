@@ -36,6 +36,6 @@ public class LevelCompletePanelManager : MonoBehaviour {
 
     public void OnClickNextBtn () {
         PlayerPrefs.SetInt ("LevelUp", 1);
-        GameManager.Instance.Replay ();
+        GameManager.Instance.SetState (GameManager.States.Replay);
     }
 }
