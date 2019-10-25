@@ -5,15 +5,13 @@ using UnityEngine;
 public class HomePanelManager : MonoBehaviour {
     PanelManager panelManager;
 
-    // Start is called before the first frame update
-    void Start () {
-        GameObject canvas = GameObject.Find ("Canvas");
-        panelManager = canvas.GetComponent<PanelManager> ();
+    void Awake () {
+        panelManager = GetComponentInParent<PanelManager> ();
     }
 
     public void OnClickPlayBtn () {
-        panelManager.CloseHomePanel ();
-        GameManager.Instance.Waiting ();
-        panelManager.OpenHUDPanel ();
+        panelManager.ChangePanelState (PanelManager.Panel.HomePanel, false);
+        GameManager.Instance.SetState (GameManager.States.Waiting);
+        panelManager.ChangePanelState (PanelManager.Panel.HUDPanel, true);
     }
 }

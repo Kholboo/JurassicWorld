@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-    private enum States { Start, Play, Waiting, GameOver, Completed }
-    PanelManager panelManager;
+    public enum States { Start, Play, Waiting, GameOver, Completed, Replay }
     States gameState;
-
+    PanelManager panelManager;
     static GameManager _instance;
     public static GameManager Instance {
         get { return _instance; }
@@ -15,47 +14,32 @@ public class GameManager : MonoBehaviour {
 
     void Start () {
         _instance = this;
-        
+
         panelManager = GetComponent<PanelManager> ();
         Application.targetFrameRate = 60;
 
         if (PlayerPrefs.GetInt ("LevelUp", 0) == 1) {
-            panelManager.CloseHomePanel ();
+            panelManager.ChangePanelState (PanelManager.Panel.HomePanel, false);
             PlayerPrefs.SetInt ("LevelUp", 0);
-            Waiting ();
-            panelManager.OpenHUDPanel ();
+            SetState (States.Waiting);
+            panelManager.ChangePanelState (PanelManager.Panel.HUDPanel, true);
         }
     }
 
-    public void Waiting () {
-        gameState = States.Waiting;
+    public bool CheckState (States state) {
+        return gameState == state;
     }
 
-    public void Play () {
-        gameState = States.Play;
-    }
-
-    public void GameOver () {
-        gameState = States.GameOver;
-    }
-
-    public void Completed () {
-        gameState = States.Completed;
+    public void SetState (States state) {
+        if (state == States.Replay) {
+            Replay ();
+            return;
+        }
+        
+        gameState = state;
     }
 
     public void Replay () {
         SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-    }
-
-    public bool IsGameOver () {
-        return gameState == States.GameOver;
-    }
-
-    public bool IsPlay () {
-        return gameState == States.Play;
-    }
-
-    public bool IsWaiting () {
-        return gameState == States.Waiting;
     }
 }

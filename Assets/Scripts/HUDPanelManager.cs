@@ -13,8 +13,7 @@ public class HUDPanelManager : MonoBehaviour {
     bool hideTip;
 
     void Awake () {
-        GameObject canvas = GameObject.Find ("Canvas");
-        levelManager = canvas.GetComponent<LevelManager> ();
+        levelManager = GetComponentInParent<LevelManager> ();
     }
 
     void OnEnable () {
@@ -24,13 +23,13 @@ public class HUDPanelManager : MonoBehaviour {
         currentLvlTxt.text = levelManager.GetLevel ().ToString ();
         nextLvlTxt.text = (levelManager.GetLevel () + 1).ToString ();
 
-        if (GameManager.Instance.IsWaiting ()) {
+        if (GameManager.Instance.CheckState (GameManager.States.Waiting)) {
             tips[0].SetActive (true);
         }
     }
 
     void Update () {
-        if (GameManager.Instance.IsPlay ()) {
+        if (GameManager.Instance.CheckState (GameManager.States.Play)) {
             if (!hideTip) {
                 hideTip = true;
 

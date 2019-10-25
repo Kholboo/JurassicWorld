@@ -10,8 +10,7 @@ public class GameOverPanelManager : MonoBehaviour {
     public Text newBestScoreTxt;
 
     void Awake () {
-        GameObject canvas = GameObject.Find ("Canvas");
-        scoreManager = canvas.GetComponent<ScoreManager> ();
+        scoreManager = GetComponentInParent<ScoreManager> ();
     }
 
     void OnEnable () {

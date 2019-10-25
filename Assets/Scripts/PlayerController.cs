@@ -12,12 +12,12 @@ public class PlayerController : MonoBehaviour {
     float rotateSpeed = 10.0f;
 
     void FixedUpdate () {
-        if (GameManager.Instance.IsWaiting ()) {
+        if (GameManager.Instance.CheckState (GameManager.States.Waiting)) {
             if (Input.GetMouseButtonDown (0)) {
-                GameManager.Instance.Play ();
+                GameManager.Instance.SetState (GameManager.States.Play);
             }
         }
-        if (GameManager.Instance.IsPlay ()) {
+        if (GameManager.Instance.CheckState (GameManager.States.Play)) {
             switch (controllerType) {
                 case ControllerType.JOYSTICK:
                     Vector3 direction = Vector3.forward * joystick.Vertical + Vector3.right * joystick.Horizontal;

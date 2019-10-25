@@ -3,40 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PanelManager : MonoBehaviour {
-    public GameObject homePanel;
-    public GameObject hudPanel;
-    public GameObject levelCompletePanel;
-    public GameObject gameOverPanel;
+    public enum Panel { HomePanel, HUDPanel, LevelCompletePanel, GameOverPanel }
+    public List<GameObject> panels = new List<GameObject> ();
 
-    public void OpenHomePanel () {
-        homePanel.SetActive (true);
+    public void ChangePanelState (Panel panelName, bool state = false, float delay = 0.0f) {
+        GameObject panel = panels.Find (p => p.name == panelName.ToString ());
+
+        StartCoroutine (_ChangePanelState (panel, state, delay));
     }
 
-    public void CloseHomePanel () {
-        homePanel.SetActive (false);
-    }
-
-    public void OpenHUDPanel () {
-        hudPanel.SetActive (true);
-    }
-
-    public void CloseHUDPanel () {
-        hudPanel.SetActive (false);
-    }
-
-    public void OpenGameOverPanel () {
-        gameOverPanel.SetActive (true);
-    }
-
-    public void CloseGameOverPanel () {
-        gameOverPanel.SetActive (false);
-    }
-
-    public void OpenLevelCompletedPanel () {
-        levelCompletePanel.SetActive (true);
-    }
-
-    public void CloseLevelCompletedPanel () {
-        levelCompletePanel.SetActive (false);
+    IEnumerator _ChangePanelState (GameObject panel, bool state, float time) {
+        yield return new WaitForSeconds (time);
+        panel.SetActive (state);
     }
 }
