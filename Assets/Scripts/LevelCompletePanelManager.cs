@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class LevelCompletePanelManager : MonoBehaviour {
     LevelManager levelManager;
-    GameManager gameManager;
     ScoreManager scoreManager;
     public Text levelTxt;
     public Text bestScoreTxt;
@@ -15,7 +14,6 @@ public class LevelCompletePanelManager : MonoBehaviour {
 
     void Awake () {
         GameObject canvas = GameObject.Find ("Canvas");
-        gameManager = canvas.GetComponent<GameManager> ();
         scoreManager = canvas.GetComponent<ScoreManager> ();
         levelManager = canvas.GetComponent<LevelManager> ();
     }
@@ -39,6 +37,6 @@ public class LevelCompletePanelManager : MonoBehaviour {
 
     public void OnClickNextBtn () {
         PlayerPrefs.SetInt ("LevelUp", 1);
-        gameManager.Replay ();
+        GameManager.Instance.Replay ();
     }
 }

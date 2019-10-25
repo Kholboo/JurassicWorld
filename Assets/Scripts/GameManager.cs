@@ -8,7 +8,14 @@ public class GameManager : MonoBehaviour {
     PanelManager panelManager;
     States gameState;
 
+    static GameManager _instance;
+    public static GameManager Instance {
+        get { return _instance; }
+    }
+
     void Start () {
+        _instance = this;
+        
         panelManager = GetComponent<PanelManager> ();
         Application.targetFrameRate = 60;
 

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameOverPanelManager : MonoBehaviour {
-    GameManager gameManager;
     ScoreManager scoreManager;
     public Text bestScoreTxt;
     public Text scoreTxt;
@@ -12,7 +11,6 @@ public class GameOverPanelManager : MonoBehaviour {
 
     void Awake () {
         GameObject canvas = GameObject.Find ("Canvas");
-        gameManager = canvas.GetComponent<GameManager> ();
         scoreManager = canvas.GetComponent<ScoreManager> ();
     }
 
@@ -26,6 +24,6 @@ public class GameOverPanelManager : MonoBehaviour {
     }
 
     public void OnClickReplayBtn () {
-        gameManager.Replay ();
+        GameManager.Instance.Replay ();
     }
 }
