@@ -11,17 +11,20 @@ public class GameManager : MonoBehaviour {
     }
     States gameState;
     PanelManager panelManager;
+    LevelManager levelManager;
 
     void Start () {
+        Application.targetFrameRate = 60;
+
         _instance = this;
 
         panelManager = GetComponent<PanelManager> ();
-        Application.targetFrameRate = 60;
+        levelManager = GetComponent<LevelManager> ();
 
-        if (PlayerPrefs.GetInt ("LevelUp", 0) == 1) {
+        if (levelManager.IsLevelUp ()) {
             panelManager.ChangePanelState (PanelManager.Panels.HomePanel, false);
 
-            PlayerPrefs.SetInt ("LevelUp", 0);
+            levelManager.LevelUp (false);
             SetState (States.Waiting);
 
             panelManager.ChangePanelState (PanelManager.Panels.HUDPanel, true);
