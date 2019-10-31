@@ -20,6 +20,8 @@ public class GameOverPanelManager : MonoBehaviour {
 
         scoreTxt.text = scoreManager.GetScore ().ToString ();
         bestScoreTxt.text = "Best: " + scoreManager.GetBestScore ().ToString ();
+
+        scoreManager.ClearScore ();
     }
 
     public void OnClickReplayBtn () {

@@ -8,6 +8,7 @@ public class LevelCompletePanelManager : MonoBehaviour {
     ScoreManager scoreManager;
     public Text levelTxt;
     public Text bestScoreTxt;
+    public Text newBestScoreTxt;
     public Text scoreTxt;
     public GameObject score;
     public GameObject newBest;
@@ -23,11 +24,13 @@ public class LevelCompletePanelManager : MonoBehaviour {
 
             newBest.SetActive (true);
 
-            bestScoreTxt.text = scoreManager.GetBestScore ().ToString ();
+            newBestScoreTxt.text = scoreManager.GetBestScore ().ToString ();
         } else {
             score.SetActive (true);
 
             levelTxt.text = "Level " + levelManager.GetLevel ().ToString ();
+
+            bestScoreTxt.text = scoreManager.GetBestScore ().ToString ();
             scoreTxt.text = scoreManager.GetScore ().ToString ();
         }
 

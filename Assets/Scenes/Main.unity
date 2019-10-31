@@ -2099,10 +2099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ce97d3078704ff08cc930152c94135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homePanel: {fileID: 233121054}
-  hudPanel: {fileID: 1008231751}
-  levelCompletePanel: {fileID: 1896475344}
-  gameOverPanel: {fileID: 1358734737}
   panels:
   - {fileID: 233121054}
   - {fileID: 1008231751}
@@ -3596,6 +3592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTxt: {fileID: 632986421}
   bestScoreTxt: {fileID: 1893185530}
+  newBestScoreTxt: {fileID: 2088610263}
   scoreTxt: {fileID: 836147281}
   score: {fileID: 974400888}
   newBest: {fileID: 297240273}

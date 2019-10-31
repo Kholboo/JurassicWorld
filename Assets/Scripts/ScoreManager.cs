@@ -18,6 +18,10 @@ public class ScoreManager : MonoBehaviour {
         return score;
     }
 
+    public void ClearScore () {
+        PlayerPrefs.SetInt ("Score", 0);
+    }
+
     public void SaveBestScore () {
         PlayerPrefs.SetInt ("BestScore", score);
     }
@@ -31,5 +35,9 @@ public class ScoreManager : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    void OnApplicationQuit () {
+        ClearScore ();
     }
 }
