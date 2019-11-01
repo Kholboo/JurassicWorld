@@ -28,12 +28,11 @@ public class LevelCompletePanelManager : MonoBehaviour {
         } else {
             score.SetActive (true);
 
-            levelTxt.text = "Level " + levelManager.GetLevel ().ToString ();
-
             bestScoreTxt.text = scoreManager.GetBestScore ().ToString ();
             scoreTxt.text = scoreManager.GetScore ().ToString ();
         }
 
+        levelTxt.text = "Level " + levelManager.GetLevel ().ToString ();
         levelManager.SaveLevel ();
     }
 
