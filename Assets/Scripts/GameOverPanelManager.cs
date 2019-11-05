@@ -7,7 +7,6 @@ public class GameOverPanelManager : MonoBehaviour {
     ScoreManager scoreManager;
     public Text bestScoreTxt;
     public Text scoreTxt;
-    public Text newBestScoreTxt;
 
     void Awake () {
         scoreManager = GetComponentInParent<ScoreManager> ();
