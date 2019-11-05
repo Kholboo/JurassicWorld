@@ -4,18 +4,32 @@ using UnityEngine;
 
 public class LevelGenerate : MonoBehaviour
 {
+    public static LevelGenerate _lg = null;
     public GameObject[] levelNormal, levelBonus;
     public List<Level> getlistLevelAll;
     public List<int> getlistLevelAllIndex;
-    public int stepBonus = 3;
+    public int stepBonus;
     private List<int> listLevelNormal, listLevelBonus;
     private void Awake()
     {
+        if (_lg == null)
+        {
+            _lg = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        // PlayerPrefs.DeleteKey("Level");
+        // PlayerPrefs.DeleteKey("LevelID");
+        // PlayerPrefs.DeleteKey("LevelType");
+        // PlayerPrefs.DeleteKey("SelectIndex");
+        // PlayerPrefs.DeleteKey("Mixer");
         getlistLevelAll = new List<Level>();
         listLevelNormal = new List<int>();
         listLevelBonus = new List<int>();
-        GetLevelData(true,true);
-        
+        //GetLevelData(true,true);
+
     }
     private void MixerNormalLevel(bool _mixed = true)
     {
@@ -45,20 +59,28 @@ public class LevelGenerate : MonoBehaviour
     }
     private void MixerLevelItems()
     {
+
         List<int> listCopyIndex = listLevelNormal;
         List<Level> listCopyObject = new List<Level>();
         for (int i = 0; i < levelNormal.Length; i++)
         {
             listCopyObject.Add(levelNormal[listLevelNormal[i]].GetComponent<Level>());
         }
-        for (int i = 0; i < listLevelBonus.Count; i++)
+        if (stepBonus > 2 && listLevelBonus.Count > 0)
         {
-            int step = (i + 1) * stepBonus - 1;
-            listCopyIndex.Insert(step, listLevelBonus[i]);
-            listCopyObject.Insert(step, levelBonus[listLevelBonus[i]].GetComponent<Level>());
+            for (int i = 0; i < listLevelBonus.Count; i++)
+            {
+                int step = ((i + 1) * (stepBonus - 1));
+                if (step <= levelNormal.Length)
+                {
+                    listCopyIndex.Insert(step + i, listLevelBonus[i]);
+                    listCopyObject.Insert(step + i, levelBonus[listLevelBonus[i]].GetComponent<Level>());
+                }
+            }
         }
         getlistLevelAll = listCopyObject;
         getlistLevelAllIndex = listCopyIndex;
+        //MainController._mc.listLevels = listCopyObject;
         //print("all levels: " + getlistLevelAll.Count);
         //MyUtils.printList(listCopyIndex);
         SaveLevelData(getlistLevelAll);
@@ -74,12 +96,19 @@ public class LevelGenerate : MonoBehaviour
             strID += lvl.ID + ",";
             strTYPE += lvl.TYPE + ",";
         }
-        //print("save... " + strID + " type " + strTYPE);
+        print("save... " + strID + " type " + strTYPE);
         PlayerPrefs.SetString("LevelID", strID);
         PlayerPrefs.SetString("LevelType", strTYPE);
     }
     public void GetLevelData(bool _normal = true, bool _bonus = true)
     {
+        if (_normal)
+        {
+            PlayerPrefs.DeleteKey("LevelID");
+            PlayerPrefs.DeleteKey("LevelType");
+            PlayerPrefs.DeleteKey("Mixer");
+        }
+
         if (PlayerPrefs.GetString("LevelID").Length < 1)
         {
             MixerNormalLevel(_normal);
@@ -92,6 +121,7 @@ public class LevelGenerate : MonoBehaviour
             getlistLevelAllIndex = new List<int>();
             string[] stringsID = PlayerPrefs.GetString("LevelID").Split(","[0]);
             string[] stringsType = PlayerPrefs.GetString("LevelType").Split(","[0]);
+            print(PlayerPrefs.GetString("LevelID") + " ++++ " + PlayerPrefs.GetString("LevelType"));
             for (int i = 0; i < stringsID.Length - 1; i++)
             {
                 //print("get: " + stringsID[i] + " type: " + stringsType[i]);
@@ -107,9 +137,21 @@ public class LevelGenerate : MonoBehaviour
                 }
                 getlistLevelAllIndex.Add(id);
             }
-            print(getlistLevelAll.Count + " >>><<<< ");
-            MyUtils.printList(getlistLevelAllIndex);
+            print(getlistLevelAll.Count + " >>> total level <<<< ");
+            //MyUtils.printList(getlistLevelAllIndex);
         }
+    }
+    public void saveSelectIndex(int _index, int _mixerEventID)
+    {
+        PlayerPrefs.SetInt("SelectIndex", _index);
+        PlayerPrefs.SetInt("Mixer", _mixerEventID);
+    }
+    public LevelReturnData callSelectIndex()
+    {
+        LevelReturnData lrd  = new LevelReturnData();
+        lrd.index = PlayerPrefs.GetInt("SelectIndex");
+        lrd.mixerEventID =  PlayerPrefs.GetInt("Mixer");
+        return lrd;
     }
 
 }

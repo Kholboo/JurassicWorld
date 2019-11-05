@@ -12,10 +12,12 @@ public class MyUtils : MonoBehaviour
         }
     }
     //Object instantiate
-    public static void CreateUtils(GameObject _obj, Vector3 _pos, GameObject _objContainer, float _angleX = 0)
+    public static GameObject CreateUtils(GameObject _obj, Vector3 _pos, GameObject _objContainer, float _angleX = 0)
     {
         GameObject instUtils = Instantiate(_obj, _pos, Quaternion.Euler(_angleX, 0, 0));
+        //instUtils.transform.localPosition = _pos;
         instUtils.transform.parent = _objContainer.transform;
+        return instUtils;
     }
     //Random get list
     public static List<int> UniqueRandomInt(int _startIndex, int _length, bool _random = true)
@@ -54,7 +56,7 @@ public class MyUtils : MonoBehaviour
         return outputcolor;
     }
     //Get middle and center point to points 
-    public static Vector2 GetMidPoint(Vector3[] _vert)
+    public static Vector2 GetMidPoint(List<Vector3> _vert)
     {
         float totalX = 0f;
         float totalY = 0f;
@@ -63,7 +65,7 @@ public class MyUtils : MonoBehaviour
             totalX += _point.x;
             totalY += _point.z;
         }
-        Vector2 retPoint = new Vector2(totalX / _vert.Length, totalY / _vert.Length);
+        Vector2 retPoint = new Vector2(totalX / _vert.Count, totalY / _vert.Count);
         return retPoint;
     }
     public static void printList(List<int> _levels)

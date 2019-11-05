@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    public int ID,TYPE;
-    private void Awake() {
-        Initialize();
-    }
-    public void Initialize()
-    {
+    public GameObject  objCoins, objTips;
+    public int ID, TYPE;
 
-    }
 }
