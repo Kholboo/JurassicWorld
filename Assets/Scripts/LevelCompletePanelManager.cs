@@ -28,7 +28,7 @@ public class LevelCompletePanelManager : MonoBehaviour {
         } else {
             score.SetActive (true);
 
-            bestScoreTxt.text = scoreManager.GetBestScore ().ToString ();
+            bestScoreTxt.text = "Best: " + scoreManager.GetBestScore ().ToString ();
             scoreTxt.text = scoreManager.GetScore ().ToString ();
         }
 
