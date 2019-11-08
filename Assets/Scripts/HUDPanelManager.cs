@@ -24,6 +24,12 @@ public class HUDPanelManager : MonoBehaviour {
     }
 
     void Update () {
+        if (GameManager.Instance.CheckState (GameManager.States.Waiting)) {
+            if (Input.GetMouseButtonDown (0)) {
+                GameManager.Instance.SetState (GameManager.States.Play);
+            }
+        }
+
         if (GameManager.Instance.CheckState (GameManager.States.Play)) {
             if (!hideTip) {
                 hideTip = true;

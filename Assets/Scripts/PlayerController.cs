@@ -12,11 +12,6 @@ public class PlayerController : MonoBehaviour {
     float rotateSpeed = 10.0f;
 
     void FixedUpdate () {
-        if (GameManager.Instance.CheckState (GameManager.States.Waiting)) {
-            if (Input.GetMouseButtonDown (0)) {
-                GameManager.Instance.SetState (GameManager.States.Play);
-            }
-        }
         if (GameManager.Instance.CheckState (GameManager.States.Play)) {
             switch (controllerType) {
                 case ControllerType.JOYSTICK:
