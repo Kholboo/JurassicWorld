@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-    public enum States { Start, Play, Waiting, GameOver, Completed, Replay }
+    public enum States { Play, Waiting, GameOver, Completed, Replay, Pause }
     static GameManager _instance;
     public static GameManager Instance {
         get { return _instance; }
