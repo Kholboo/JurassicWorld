@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HUDPanelManager : MonoBehaviour {
-    LevelManager levelManager;
     public Slider levelSlider;
     public Text currentLvlTxt;
     public Text nextLvlTxt;
@@ -12,16 +11,12 @@ public class HUDPanelManager : MonoBehaviour {
     public List<GameObject> tips;
     bool hideTip;
 
-    void Awake () {
-        levelManager = GetComponentInParent<LevelManager> ();
-    }
-
     void OnEnable () {
-        currentLvlTxt.text = levelManager.GetLevel ().ToString ();
-        nextLvlTxt.text = (levelManager.GetLevel () + 1).ToString ();
+        currentLvlTxt.text = GameManager.Instance.levelManager.GetLevel ().ToString ();
+        nextLvlTxt.text = (GameManager.Instance.levelManager.GetLevel () + 1).ToString ();
 
-        currentLvlTxt.text = levelManager.GetLevel ().ToString ();
-        nextLvlTxt.text = (levelManager.GetLevel () + 1).ToString ();
+        currentLvlTxt.text = GameManager.Instance.levelManager.GetLevel ().ToString ();
+        nextLvlTxt.text = (GameManager.Instance.levelManager.GetLevel () + 1).ToString ();
 
         if (GameManager.Instance.CheckState (GameManager.States.Waiting)) {
             tips[0].SetActive (true);

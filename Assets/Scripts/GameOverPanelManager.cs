@@ -4,23 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameOverPanelManager : MonoBehaviour {
-    ScoreManager scoreManager;
     public Text bestScoreTxt;
     public Text scoreTxt;
 
-    void Awake () {
-        scoreManager = GetComponentInParent<ScoreManager> ();
-    }
-
     void OnEnable () {
-        if (scoreManager.CheckNewBestScore ()) {
-            scoreManager.SaveBestScore ();
+        if (GameManager.Instance.scoreManager.CheckNewBestScore ()) {
+            GameManager.Instance.scoreManager.SaveBestScore ();
         }
 
-        scoreTxt.text = scoreManager.GetScore ().ToString ();
-        bestScoreTxt.text = "Best: " + scoreManager.GetBestScore ().ToString ();
+        scoreTxt.text = GameManager.Instance.scoreManager.GetScore ().ToString ();
+        bestScoreTxt.text = "Best: " + GameManager.Instance.scoreManager.GetBestScore ().ToString ();
 
-        scoreManager.ClearScore ();
+        GameManager.Instance.scoreManager.ClearScore ();
     }
 
     public void OnClickReplayBtn () {

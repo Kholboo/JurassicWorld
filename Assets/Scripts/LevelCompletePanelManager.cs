@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelCompletePanelManager : MonoBehaviour {
-    LevelManager levelManager;
-    ScoreManager scoreManager;
     public Text levelTxt;
     public Text bestScoreTxt;
     public Text newBestScoreTxt;
@@ -13,31 +11,26 @@ public class LevelCompletePanelManager : MonoBehaviour {
     public GameObject score;
     public GameObject newBest;
 
-    void Awake () {
-        scoreManager = GetComponentInParent<ScoreManager> ();
-        levelManager = GetComponentInParent<LevelManager> ();
-    }
-
     void OnEnable () {
-        if (scoreManager.CheckNewBestScore ()) {
-            scoreManager.SaveBestScore ();
+        if (GameManager.Instance.scoreManager.CheckNewBestScore ()) {
+            GameManager.Instance.scoreManager.SaveBestScore ();
 
             newBest.SetActive (true);
 
-            newBestScoreTxt.text = scoreManager.GetBestScore ().ToString ();
+            newBestScoreTxt.text = GameManager.Instance.scoreManager.GetBestScore ().ToString ();
         } else {
             score.SetActive (true);
 
-            bestScoreTxt.text = "Best: " + scoreManager.GetBestScore ().ToString ();
-            scoreTxt.text = scoreManager.GetScore ().ToString ();
+            bestScoreTxt.text = "Best: " + GameManager.Instance.scoreManager.GetBestScore ().ToString ();
+            scoreTxt.text = GameManager.Instance.scoreManager.GetScore ().ToString ();
         }
 
-        levelTxt.text = "Level " + levelManager.GetLevel ().ToString ();
-        levelManager.SaveLevel ();
+        levelTxt.text = "Level " + GameManager.Instance.levelManager.GetLevel ().ToString ();
+        GameManager.Instance.levelManager.SaveLevel ();
     }
 
     public void OnClickNextBtn () {
-        levelManager.LevelUp (true);
+        GameManager.Instance.levelManager.LevelUp (true);
         GameManager.Instance.SetState (GameManager.States.Replay);
     }
 }

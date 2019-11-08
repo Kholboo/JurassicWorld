@@ -10,16 +10,26 @@ public class GameManager : MonoBehaviour {
         get { return _instance; }
     }
     States gameState;
-    PanelManager panelManager;
-    LevelManager levelManager;
+    [HideInInspector]
+    public PanelManager panelManager;
+    [HideInInspector]
+    public LevelManager levelManager;
+    [HideInInspector]
+    public ScoreManager scoreManager;
 
     void Start () {
         Application.targetFrameRate = 60;
+
+        if (_instance != null && _instance != this) {
+            Destroy (gameObject);
+            return;
+        }
 
         _instance = this;
 
         panelManager = GetComponent<PanelManager> ();
         levelManager = GetComponent<LevelManager> ();
+        scoreManager = GetComponent<ScoreManager> ();
 
         if (levelManager.IsLevelUp ()) {
             panelManager.ChangePanelState (PanelManager.Panels.HomePanel, false);
@@ -38,7 +48,6 @@ public class GameManager : MonoBehaviour {
     public void SetState (States state) {
         if (state == States.Replay) {
             Replay ();
-
             return;
         }
 
