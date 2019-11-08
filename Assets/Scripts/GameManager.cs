@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public ScoreManager scoreManager;
 
-    void Start () {
+    void Awake () {
         Application.targetFrameRate = 60;
 
         if (_instance != null && _instance != this) {
