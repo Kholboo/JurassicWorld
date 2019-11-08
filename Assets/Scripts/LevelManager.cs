@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
-    int level;
-
     public void SaveLevel () {
-        level = GetLevel ();
+        int level = GetLevel ();
         level++;
         PlayerPrefs.SetInt ("Level", level);
     }
