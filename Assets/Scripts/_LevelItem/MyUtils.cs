@@ -12,9 +12,9 @@ public class MyUtils : MonoBehaviour
         }
     }
     //Object instantiate
-    public static GameObject CreateUtils(GameObject _obj, Vector3 _pos, GameObject _objContainer, float _angleX = 0)
+    public static GameObject CreateUtils(GameObject _obj, Vector3 _pos, GameObject _objContainer, Quaternion _angle)
     {
-        GameObject instUtils = Instantiate(_obj, _pos, Quaternion.Euler(_angleX, 0, 0));
+        GameObject instUtils = Instantiate(_obj, _pos, _angle);
         //instUtils.transform.localPosition = _pos;
         instUtils.transform.parent = _objContainer.transform;
         return instUtils;
@@ -75,5 +75,37 @@ public class MyUtils : MonoBehaviour
         {
             print(_levels[i]+".");
         }
+    }
+    //Get inspector angle
+    public static float GetInspectorAngle (Transform _transform) {
+        Vector3 angle = _transform.eulerAngles;
+        float x = angle.x;
+        float y = angle.y;
+        float z = angle.z;
+
+        if (Vector3.Dot (_transform.up, Vector3.up) >= 0f) {
+            if (angle.x >= 0f && angle.x <= 90f) {
+                x = angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f) {
+                x = angle.x - 360f;
+            }
+        }
+        if (Vector3.Dot (_transform.up, Vector3.up) < 0f) {
+            if (angle.x >= 0f && angle.x <= 90f) {
+                x = 180 - angle.x;
+            }
+            if (angle.x >= 270f && angle.x <= 360f) {
+                x = 180 - angle.x;
+            }
+        }
+        return x;
+    }
+    public static float Clamp0360 (float eulerAngles) {
+        float result = eulerAngles - Mathf.CeilToInt (eulerAngles / 360f) * 360f;
+        if (result < 0) {
+            result += 360f;
+        }
+        return result;
     }
 }
