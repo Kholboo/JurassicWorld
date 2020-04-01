@@ -2022,7 +2022,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 311
 --- !u!114 &796417555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2118,6 +2118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb165f4736164b3fad0d72da3b834cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
   panelManager: {fileID: 0}
   levelManager: {fileID: 0}
   scoreManager: {fileID: 0}
@@ -2133,6 +2134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c091e47c7c037491495d50e76b76f047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levels:
+  - levelIndex: 1
+    prefab: {fileID: 0}
 --- !u!114 &796417561
 MonoBehaviour:
   m_ObjectHideFlags: 0

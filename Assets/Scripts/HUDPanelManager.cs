@@ -15,13 +15,13 @@ public class HUDPanelManager : MonoBehaviour {
         currentLvlTxt.text = GameManager.Instance.levelManager.GetLevel ().ToString ();
         nextLvlTxt.text = (GameManager.Instance.levelManager.GetLevel () + 1).ToString ();
 
-        if (GameManager.Instance.CheckState (GameManager.States.Waiting)) {
+        if (GameManager.Instance.CheckState (GameManager.States.Start)) {
             tips[0].SetActive (true);
         }
     }
 
     void Update () {
-        if (GameManager.Instance.CheckState (GameManager.States.Waiting)) {
+        if (GameManager.Instance.CheckState (GameManager.States.Start)) {
             if (Input.GetMouseButtonDown (0)) {
                 GameManager.Instance.SetState (GameManager.States.Play);
             }
