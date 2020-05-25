@@ -1,5 +1,5 @@
 {
-    "activeConfigurationIndex": 0,
+    "activeConfigurationIndex": 1,
     "version": 1,
     "perPlatformConfigurations": [
         {
@@ -11,7 +11,7 @@
                 },
                 {
                     "configurationName": "Config B",
-                    "<DeviceIndex>k__BackingField": 0
+                    "<DeviceIndex>k__BackingField": 1
                 }
             ]
         }
