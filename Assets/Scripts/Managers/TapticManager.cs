@@ -5,14 +5,14 @@ using MoreMountains.NiceVibrations;
 
 public class TapticManager : MonoBehaviour
 {
-    public void ImpactPattern(TapticType type = TapticType.SUCCESS)
+    public void ImpactPattern(HapticTypes type)
     {
         switch (type)
         {
-            case TapticType.FAILURE:
+            case HapticTypes.Failure:
                 Impact(HapticTypes.Failure);
                 break;
-            case TapticType.SUCCESS:
+            case HapticTypes.Success:
                 Impact(HapticTypes.HeavyImpact, 0.1f, 10);
                 break;
         }
@@ -31,10 +31,4 @@ public class TapticManager : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
     }
-}
-
-public enum TapticType
-{
-    FAILURE,
-    SUCCESS,
 }
