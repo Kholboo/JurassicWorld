@@ -51,12 +51,12 @@ public class GameManager : MonoBehaviour
 
         if (levelManager.IsLevelUp())
         {
-            panelManager.ChangePanelState(PanelManager.Panels.HomePanel, false);
+            panelManager.ChangeState(Panels.HOMEPANEL, false);
 
             levelManager.LevelUp(false);
             SetState(States.Start);
 
-            panelManager.ChangePanelState(PanelManager.Panels.HUDPanel, true);
+            panelManager.ChangeState(Panels.HUDPANEL, true);
         }
     }
 
