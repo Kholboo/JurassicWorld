@@ -7,10 +7,10 @@ using Sirenix.OdinInspector;
 public class GameManager : MonoBehaviour
 {
     public enum States { Start, Play, GameOver, Completed, Replay, Pause }
-    static GameManager _instance;
+    static GameManager instance;
     public static GameManager Instance
     {
-        get { return _instance; }
+        get { return instance; }
     }
     [EnumToggleButtons]
     public States gameState;
@@ -33,13 +33,13 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
 
-        if (_instance != null && _instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        _instance = this;
+        instance = this;
 
         panelManager = GetComponent<PanelManager>();
         levelManager = GetComponent<LevelManager>();
