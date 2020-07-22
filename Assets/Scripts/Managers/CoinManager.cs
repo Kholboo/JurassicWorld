@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    int levelCoin;
+    public int LevelCoin
     {
-        
+        get { return levelCoin; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetTotalCoin()
     {
-        
+        return PlayerPrefs.GetInt("Coin", 0);
+    }
+
+    public void UpdateCoin(int coin)
+    {
+        levelCoin += coin;
+        PlayerPrefs.SetInt("Coin", GetTotalCoin() + coin);
     }
 }
