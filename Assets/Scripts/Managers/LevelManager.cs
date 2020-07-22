@@ -54,11 +54,8 @@ public class LevelManager : MonoBehaviour
 
     public void SaveLevel()
     {
-        if (!isBonusLevel)
-        {
-            PlayerPrefs.SetInt("Level", GetLevel() + 1);
-            PlayerPrefs.SetInt("LevelIndex", GetLevelIndex() + 1);
-        }
+        PlayerPrefs.SetInt("Level", GetLevel() + 1);
+        PlayerPrefs.SetInt("LevelIndex", GetLevelIndex() + 1);
     }
 
     public int GetLevel()
