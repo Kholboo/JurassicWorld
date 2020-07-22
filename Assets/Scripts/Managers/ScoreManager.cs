@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
         return PlayerPrefs.GetInt("SessionScore", 0);
     }
 
-    public void SaveBestScore()
+    void SaveBestScore()
     {
         PlayerPrefs.SetInt("Score", GetScore());
     }
@@ -33,8 +33,10 @@ public class ScoreManager : MonoBehaviour
     {
         if (GetScore() > GetBestScore())
         {
+            SaveBestScore();
             return true;
         }
+
         return false;
     }
 

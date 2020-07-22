@@ -8,7 +8,10 @@ public class LevelManager : MonoBehaviour
 
     public void SpawnLevel()
     {
+        if (GetLevelIndex() > levels.Count - 1)
+        {
 
+        }
     }
 
     public void SaveLevel()
