@@ -6,14 +6,25 @@ public class LevelManager : MonoBehaviour
 {
     public List<GameObject> levels = new List<GameObject>();
 
+    public void SpawnLevel()
+    {
+
+    }
+
     public void SaveLevel()
     {
         PlayerPrefs.SetInt("Level", GetLevel() + 1);
+        PlayerPrefs.SetInt("LevelIndex", GetLevelIndex() + 1);
     }
 
     public int GetLevel()
     {
         return PlayerPrefs.GetInt("Level", 1);
+    }
+
+    public int GetLevelIndex()
+    {
+        return PlayerPrefs.GetInt("LevelIndex", 0);
     }
 
     public void LevelUp(bool state = false)
