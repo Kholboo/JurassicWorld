@@ -52,23 +52,20 @@ public class LevelManager : MonoBehaviour
         return index == GetLevelIndex() ? GetRandomIndex() : index;
     }
 
+    int GetLevelIndex()
+    {
+        return PlayerPrefs.GetInt("LevelIndex", 0);
+    }
+
     public void SaveLevel()
     {
-        if (!isBonusLevel)
-        {
-            PlayerPrefs.SetInt("Level", GetLevel() + 1);
-            PlayerPrefs.SetInt("LevelIndex", GetLevelIndex() + 1);
-        }
+        PlayerPrefs.SetInt("Level", GetLevel() + 1);
+        PlayerPrefs.SetInt("LevelIndex", GetLevelIndex() + 1);
     }
 
     public int GetLevel()
     {
         return PlayerPrefs.GetInt("Level", 1);
-    }
-
-    public int GetLevelIndex()
-    {
-        return PlayerPrefs.GetInt("LevelIndex", 0);
     }
 
     public void LevelUp(bool state = false)
