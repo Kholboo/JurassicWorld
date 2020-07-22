@@ -485,8 +485,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c091e47c7c037491495d50e76b76f047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 0}
+  levels: []
+  bonusLevels: []
+  randomIndex: 3
+  isBonusLevel: 0
+  hasBonusLevel: 0
+  bonusLevelStep: 2
 --- !u!114 &375890116
 MonoBehaviour:
   m_ObjectHideFlags: 0
