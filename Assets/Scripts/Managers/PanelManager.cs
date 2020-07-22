@@ -10,14 +10,14 @@ public class PanelManager : MonoBehaviour
     public GameObject levelCompletePanel;
     public GameObject gameOverPanel;
 
-    public void ChangeState(Panels panelName, PanelState state = PanelState.CLOSE, float delay = 0.0f)
+    public void ChangeState(Panels panel, PanelState state = PanelState.CLOSE, float delay = 0.0f)
     {
-        StartCoroutine(_ChangeState(FindPanel(panelName), state, delay));
+        StartCoroutine(_ChangeState(FindPanel(panel), state, delay));
     }
 
-    IEnumerator _ChangeState(GameObject panel, PanelState state, float time)
+    IEnumerator _ChangeState(GameObject panel, PanelState state, float delay)
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(delay);
         panel.SetActive(state == PanelState.OPEN);
     }
 

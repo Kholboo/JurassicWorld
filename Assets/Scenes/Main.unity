@@ -488,9 +488,8 @@ MonoBehaviour:
   levels: []
   bonusLevels: []
   randomIndex: 3
-  isBonusLevel: 0
   hasBonusLevel: 0
-  bonusLevelStep: 2
+  bonusLevelStep: 3
 --- !u!114 &375890116
 MonoBehaviour:
   m_ObjectHideFlags: 0
