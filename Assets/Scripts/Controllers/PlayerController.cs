@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [EnumToggleButtons]
     [BoxGroup("ControllerType")]
     public ControllerType controllerType;
-    [BoxGroup("Scripts")]
+    [BoxGroup("Objects")]
     public DynamicJoystick joystick;
     [BoxGroup("Float Values")]
     public float moveSpeed = 10.0f;
