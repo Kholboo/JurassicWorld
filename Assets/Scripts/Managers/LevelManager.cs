@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
     bool CheckBonusLevel()
     {
-        return isBonusLevel = hasBonusLevel && GetLevel() % bonusLevelStep == 0;
+        return isBonusLevel = hasBonusLevel && GetSession() % bonusLevelStep == 0;
     }
 
     int FindLevelIndex()
@@ -64,6 +64,13 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("Level", GetLevel() + 1);
             PlayerPrefs.SetInt("LevelIndex", GetLevelIndex() + 1);
         }
+
+        PlayerPrefs.SetInt("Session", GetSession() + 1);
+    }
+
+    int GetSession()
+    {
+        return PlayerPrefs.GetInt("Session", 1);
     }
 
     public int GetLevel()
