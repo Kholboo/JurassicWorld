@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     public TapticManager tapticManager;
     [HideInInspector]
     public FileManager fileManager;
+    [HideInInspector]
+    public EventManager eventManager;
 
     void Awake()
     {
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
         coinManager = GetComponent<CoinManager>();
         tapticManager = GetComponent<TapticManager>();
         fileManager = GetComponent<FileManager>();
+        eventManager = GetComponent<EventManager>();
 
         if (levelManager.IsLevelUp())
         {
