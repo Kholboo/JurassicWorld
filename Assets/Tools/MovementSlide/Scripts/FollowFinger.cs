@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveLineSlideController : MonoBehaviour {
+public class FollowFinger : MonoBehaviour {
     [Range (0,90)]
     public float roteteAngleY = 0;
     public enum MovementType {
