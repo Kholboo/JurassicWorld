@@ -32,9 +32,10 @@ public class JoystickSmooth : MonoBehaviour
     {
         HUDPanel.FindJoyStick -= FindJoystick;
     }
+  
     void FixedUpdate()
     {
-        if (GameManager.Instance.CheckState(GameManager.States.Play))
+       if (GameManager.Instance.CheckState(GameManager.States.Play))
         {
             switch (controllerType)
             {
