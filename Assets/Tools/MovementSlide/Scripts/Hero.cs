@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Hero : MonoBehaviour {
 
-    public MoveLineSlideController indicator;
-    public enum FollowType {
-        CUSTOM,
-        HORIZONTAL,
-        VERTICAL
-    }
+    public FollowFinger indicator;
+
     public FollowType followType;
     public bool isInfinity = false;
     private Vector2 showMaxDistance;
+    public float speed = 10f;
     private void Start () {
         showMaxDistance.x = indicator.moveRange.x + 4;
         showMaxDistance.y = indicator.moveRange.y + 4;
@@ -24,7 +21,7 @@ public class Hero : MonoBehaviour {
         transform.localRotation = Quaternion.Slerp (transform.localRotation, Quaternion.LookRotation (dir), 0.2f);
         float targetX = transform.localPosition.x;
         float targetY = transform.localPosition.z;
-        if (followType == FollowType.CUSTOM) {
+        if (followType == FollowType.BOTH) {
             targetX = indicator.transform.localPosition.x;
             targetY = indicator.transform.localPosition.z;
         }
@@ -51,18 +48,14 @@ public class Hero : MonoBehaviour {
         if (posTarget.z < -indicator.moveRange.y) {
             posTarget.z = -indicator.moveRange.y;
         }
-        transform.localPosition = Vector3.Lerp (transform.localPosition, posTarget, 5f * Time.deltaTime);
+        transform.localPosition = Vector3.Lerp (transform.localPosition, posTarget, speed * Time.deltaTime);
         //transform.localPosition = Vector3.MoveTowards (transform.localPosition, posTarget, 100 * Time.deltaTime);
     }
-    //Runing Bike.....
-    // private void FixedUpdate () {
-    //     Vector3 direction = indicator.transform.localPosition - transform.localPosition;
-    //     Vector3 dir = Vector3.ClampMagnitude (indicator.transform.localPosition, maxDistance);
-    //     transform.localRotation = Quaternion.Slerp (transform.localRotation, Quaternion.LookRotation (dir), 0.2f);
 
-    //     float targetX = transform.localPosition.x + indicator.transform.localPosition.x / 2f;
-    //     Vector3 posTarget = new Vector3 (targetX, transform.localPosition.y, transform.localPosition.z);
-    //     transform.localPosition = Vector3.Lerp (transform.localPosition, posTarget, 3f * Time.deltaTime);
-    //     //transform.localPosition = Vector3.MoveTowards (transform.localPosition, posTarget, 100 * Time.deltaTime);
-    // }
+}
+
+public enum FollowType {
+    BOTH,
+    HORIZONTAL,
+    VERTICAL
 }

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
         DEFAULTDIRECTION,
         HORIZONTAL,
         VERTICAL,
-    }
+    }   
 
     [EnumToggleButtons]
     [BoxGroup("ControllerType")]
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [HideIf("controllerType", ControllerType.JOYSTICK)]
     [BoxGroup("Float Values")]
     public float range = 10f;
-    private void Start()
+    void Start()
     {
         HUDPanel.FindJoyStick += FindJoystick;
     }
@@ -34,13 +34,14 @@ public class PlayerController : MonoBehaviour
     {
         joystick = GameObject.FindObjectOfType<DynamicJoystick>();
     }
-    private void OnDestroy()
+    void OnDestroy()
     {
         HUDPanel.FindJoyStick -= FindJoystick;
     }
+  
     void FixedUpdate()
     {
-        if (GameManager.Instance.CheckState(GameManager.States.Play))
+       if (GameManager.Instance.CheckState(GameManager.States.Play))
         {
             switch (controllerType)
             {
