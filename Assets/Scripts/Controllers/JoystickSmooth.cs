@@ -21,21 +21,17 @@ public class JoystickSmooth : MonoBehaviour
     public float range = 5f;
     void Start()
     {
-        HUDPanel.FindJoyStick += FindJoystick;
-
+        HUDPanel.LevelStart += FindJoystick;
     }
-    public void FindJoystick()
+    void FindJoystick()
     {
         joystick = GameObject.FindObjectOfType<DynamicJoystick>();
     }
-    void OnDestroy()
-    {
-        HUDPanel.FindJoyStick -= FindJoystick;
-    }
-  
+
+
     void FixedUpdate()
     {
-       if (GameManager.Instance.CheckState(GameManager.States.Play))
+        if (GameManager.Instance.CheckState(GameManager.States.Play))
         {
             switch (controllerType)
             {
@@ -98,31 +94,15 @@ public class JoystickSmooth : MonoBehaviour
     }
     void MoveHorinzontal()
     {
-        Vector3 target;
-        if (joystick.Horizontal > 0.4f)
-        {
-            target = new Vector3(range, transform.position.y, transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        }
-        else if (joystick.Horizontal < -0.4f)
-        {
-            target = new Vector3(-range, transform.position.y, transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        }
+        Vector3 target = transform.position + joystick.Horizontal * Vector3.right;
+        target.x = Mathf.Clamp(target.x, -range, range);
+        transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
 
     }
     void MoveVertical()
     {
-        Vector3 target;
-        if (joystick.Vertical > 0.4f)
-        {
-            target = new Vector3(transform.position.x, transform.position.y, range);
-            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        }
-        else if (joystick.Vertical < -0.4f)
-        {
-            target = new Vector3(transform.position.x, transform.position.y, -range);
-            transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        }
+        Vector3 target = transform.position + joystick.Vertical * Vector3.forward;
+        target.z = Mathf.Clamp(target.z, -range, range);
+        transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
     }
 }
