@@ -41,10 +41,10 @@ public class SkinManager : MonoBehaviour
 
 public enum UIType
 {
-    SPRITE,
+    Sprite,
 }
 
 public enum SpriteType
 {
-    PLAYBUTTON,
+    PlayButton,
 }
