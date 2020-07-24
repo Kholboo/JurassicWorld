@@ -6,17 +6,17 @@ using System;
 public class JoystickSmooth : MonoBehaviour
 {
     [EnumToggleButtons]
-    [BoxGroup("ControllerType")]
-    public ControllerType controllerType;
+    [BoxGroup("ControllerDirection")]
+    public ControllerDirection controllerDirection;
 
     [BoxGroup("Objects")]
     public DynamicJoystick joystick;
     [BoxGroup("Float Values")]
     public float moveSpeed = 10.0f;
-    [ShowIf("controllerType", ControllerType.JOYSTICK)]
+    [ShowIf("controllerDirection", ControllerDirection.Both)]
     [BoxGroup("Float Values")]
     public float rotateSpeed = 10.0f;
-    [HideIf("controllerType", ControllerType.JOYSTICK)]
+    [HideIf("controllerDirection", ControllerDirection.Both)]
     [BoxGroup("Float Values")]
     public float range = 5f;
     void Start()
@@ -33,18 +33,18 @@ public class JoystickSmooth : MonoBehaviour
     {
         if (GameManager.Instance.CheckState(GameManager.States.Play))
         {
-            switch (controllerType)
+            switch (ControllerDirection)
             {
-                case ControllerType.JOYSTICK:
+                case ControllerDirection:
                     MoveJoystick();
                     break;
-                case ControllerType.DEFAULTDIRECTION:
+                case ControllerDirection.DEFAULTDIRECTION:
                     MoveDefaultDirection();
                     break;
-                case ControllerType.HORIZONTAL:
+                case ControllerDirection.HORIZONTAL:
                     MoveHorinzontal();
                     break;
-                case ControllerType.VERTICAL:
+                case ControllerDirection.VERTICAL:
                     MoveVertical();
                     break;
             }
