@@ -176,7 +176,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e559bcadfb00fb8458ae72479dffcf39, type: 3}
+    m_Font: {fileID: 12800000, guid: 859a224e0c398b74bb9fc65d14579739, type: 3}
     m_FontSize: 140
     m_FontStyle: 0
     m_BestFit: 0
@@ -270,7 +270,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1055,6 +1055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiType: 1
   spriteType: 0
+  colorType: 0
 --- !u!1 &796417553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiType: 0
   spriteType: 0
+  colorType: 0
 --- !u!1 &1896475344
 GameObject:
   m_ObjectHideFlags: 0
