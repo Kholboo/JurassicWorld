@@ -737,9 +737,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c091e47c7c037491495d50e76b76f047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels: []
+  levels:
+  - {fileID: 6680940538125813286, guid: 07444b2e50eb44ac4893cff9baceae0d, type: 3}
+  - {fileID: 7707754288411457347, guid: b19d99aacb1574a518e064033f5107e8, type: 3}
+  - {fileID: 9174256992271348117, guid: 21eeac136b5e342439b12d80ea29b273, type: 3}
   bonusLevels: []
-  randomIndex: 3
+  randomIndex: 0
   hasBonusLevel: 0
   bonusLevelStep: 3
 --- !u!114 &375890116
@@ -1055,6 +1058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiType: 1
   spriteType: 0
+  colorType: 0
 --- !u!1 &796417553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiType: 0
   spriteType: 0
+  colorType: 0
 --- !u!1 &1896475344
 GameObject:
   m_ObjectHideFlags: 0
