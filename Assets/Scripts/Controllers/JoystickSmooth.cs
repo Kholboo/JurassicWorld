@@ -33,18 +33,18 @@ public class JoystickSmooth : MonoBehaviour
     {
         if (GameManager.Instance.CheckState(GameState.Play))
         {
-            switch (ControllerDirection)
+            switch (controllerDirection)
             {
-                case ControllerDirection:
+                case ControllerDirection.Both:
                     MoveJoystick();
                     break;
-                case ControllerDirection.DEFAULTDIRECTION:
+                case ControllerDirection.Line:
                     MoveDefaultDirection();
                     break;
-                case ControllerDirection.HORIZONTAL:
+                case ControllerDirection.Horizontal:
                     MoveHorinzontal();
                     break;
-                case ControllerDirection.VERTICAL:
+                case ControllerDirection.Vertical:
                     MoveVertical();
                     break;
             }
