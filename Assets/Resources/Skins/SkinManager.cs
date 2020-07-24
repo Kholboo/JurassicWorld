@@ -11,10 +11,9 @@ public class SkinManager : MonoBehaviour
         get { return instance; }
     }
     public List<SkinData> skins = new List<SkinData>();
-    int skinIndex;
     public SkinData SelectedSkin
     {
-        get { return skins[skinIndex]; }
+        get { return skins[PlayerPrefs.GetInt("SkinIndex", 0)]; }
     }
     public static event Action OnChange = delegate { };
 
@@ -27,12 +26,12 @@ public class SkinManager : MonoBehaviour
         }
 
         instance = this;
-        skinIndex = PlayerPrefs.GetInt("SkinIndex", 0);
+
+        // ChangeSkin(0);
     }
 
     public void ChangeSkin(int index)
     {
-        skinIndex = index;
         PlayerPrefs.SetInt("SkinIndex", index);
 
         OnChange();
@@ -42,9 +41,15 @@ public class SkinManager : MonoBehaviour
 public enum UIType
 {
     Sprite,
+    Text,
 }
 
 public enum SpriteType
+{
+    PlayButton,
+}
+
+public enum ColorType
 {
     PlayButton,
 }

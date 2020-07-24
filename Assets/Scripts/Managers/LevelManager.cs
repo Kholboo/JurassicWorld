@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     public List<GameObject> levels = new List<GameObject>();
     public List<GameObject> bonusLevels = new List<GameObject>();
-    public int randomIndex = 3;
+    public int randomIndex = 0;
     bool isBonusLevel;
     public bool IsBonusLevel
     {
@@ -42,14 +42,8 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            return GetLevel() > levels.Count ? GetRandomIndex() : GetLevelIndex();
+            return GetLevelIndex();
         }
-    }
-
-    int GetRandomIndex()
-    {
-        int index = Random.Range(randomIndex, levels.Count);
-        return index == GetLevelIndex() ? GetRandomIndex() : index;
     }
 
     int GetLevelIndex()
@@ -57,15 +51,22 @@ public class LevelManager : MonoBehaviour
         return PlayerPrefs.GetInt("LevelIndex", 0);
     }
 
+    int GenerateRandomIndex()
+    {
+        int index = Random.Range(randomIndex, levels.Count);
+        return index == GetLevelIndex() ? GenerateRandomIndex() : index;
+    }
+
     public void SaveLevel()
     {
         if (!isBonusLevel)
         {
             PlayerPrefs.SetInt("Level", GetLevel() + 1);
-            PlayerPrefs.SetInt("LevelIndex", GetLevelIndex() + 1);
+            PlayerPrefs.SetInt("LevelIndex", GetLevel() > levels.Count ? GenerateRandomIndex() : GetLevelIndex() + 1);
         }
 
         PlayerPrefs.SetInt("Session", GetSession() + 1);
+        LevelUp(true);
     }
 
     int GetSession()
