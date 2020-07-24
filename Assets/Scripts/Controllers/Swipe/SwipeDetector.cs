@@ -40,12 +40,12 @@ public class SwipeDetector : MonoBehaviour
         {
             if (IsVerticalSwipe())
             {
-                var direction = fingerDownPosition.y - fingerUpPosition.y > 0 ? SwipeDirection.UP : SwipeDirection.DOWN;
+                var direction = fingerDownPosition.y - fingerUpPosition.y > 0 ? SwipeDirection.Up : SwipeDirection.Down;
                 SendSwipe(direction);
             }
             else
             {
-                var direction = fingerDownPosition.x - fingerUpPosition.x > 0 ? SwipeDirection.RIGHT : SwipeDirection.LEFT;
+                var direction = fingerDownPosition.x - fingerUpPosition.x > 0 ? SwipeDirection.Right : SwipeDirection.Left;
                 SendSwipe(direction);
             }
             fingerUpPosition = fingerDownPosition;
@@ -93,8 +93,8 @@ public struct SwipeData
 
 public enum SwipeDirection
 {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
+    Up,
+    Down,
+    Left,
+    Right
 }
