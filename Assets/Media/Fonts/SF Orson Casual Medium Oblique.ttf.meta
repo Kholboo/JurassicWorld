@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f559855a29c0ae34cbd94990847718d9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SF Orson Casual Medium
+  fontNames:
+  - SF Orson Casual Medium
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2785c206e23708d4aaa07f42823e8f6e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
