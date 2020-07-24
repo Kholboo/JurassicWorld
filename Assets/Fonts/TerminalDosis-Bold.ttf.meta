@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: e559bcadfb00fb8458ae72479dffcf39
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Terminal Dosis
+  fontNames:
+  - Terminal Dosis
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 71904872951c04c4181fe0bfa089ebf3, type: 3}
+  - {fileID: 12800000, guid: 2a9ffac902066874abec5b0ceba451e7, type: 3}
+  - {fileID: 12800000, guid: 107cb59abe4d69c46b57824e8a81b093, type: 3}
+  - {fileID: 12800000, guid: 9431468b5f8deaf4cae67dc2ffe97790, type: 3}
+  - {fileID: 12800000, guid: 49fc49bc6f940aa42bcd9f09cdeb6bd5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
