@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4938801500459760}
   - component: {fileID: 198935376302704836}
   - component: {fileID: 199152058827633954}
-  - component: {fileID: -4537282624691917751}
   m_Layer: 0
   m_Name: VfxBoomSparks2
   m_TagString: Particle
@@ -4696,18 +4695,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &-4537282624691917751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820505111244332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1e8cd89e540ef4c8a557a60a3e0860, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &159348811409993349
 GameObject:
   m_ObjectHideFlags: 0
@@ -9483,7 +9470,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 776677ab3818fb249adaca05f4e04545, type: 2}
+  - {fileID: 2100000, guid: 0161c043b67ab5541a07dbabad9d69b4, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
