@@ -10,15 +10,15 @@ public class PanelManager : MonoBehaviour
     public GameObject levelCompletePanel;
     public GameObject gameOverPanel;
 
-    public void ChangeState(Panels panel, PanelState state = PanelState.CLOSE, float delay = 0.0f)
+    public void ChangeState(Panels panel, bool state = true, float delay = 0.0f)
     {
         StartCoroutine(_ChangeState(FindPanel(panel), state, delay));
     }
 
-    IEnumerator _ChangeState(GameObject panel, PanelState state, float delay)
+    IEnumerator _ChangeState(GameObject panel, bool state, float delay)
     {
         yield return new WaitForSeconds(delay);
-        panel.SetActive(state == PanelState.OPEN);
+        panel.SetActive(state);
     }
 
     GameObject FindPanel(Panels panel)
@@ -27,16 +27,16 @@ public class PanelManager : MonoBehaviour
 
         switch (panel)
         {
-            case Panels.HOMEPANEL:
+            case Panels.HomePanel:
                 _panel = homePanel;
                 break;
-            case Panels.HUDPANEL:
+            case Panels.HUDPanel:
                 _panel = hudPanel;
                 break;
-            case Panels.LEVELCOMPLETEPANEL:
+            case Panels.LevelCompletePanel:
                 _panel = levelCompletePanel;
                 break;
-            case Panels.GAMEOVERPANEL:
+            case Panels.GameOverPanel:
                 _panel = gameOverPanel;
                 break;
         }
@@ -47,14 +47,14 @@ public class PanelManager : MonoBehaviour
 
 public enum Panels
 {
-    HOMEPANEL,
-    HUDPANEL,
-    LEVELCOMPLETEPANEL,
-    GAMEOVERPANEL
+    HomePanel,
+    HUDPanel,
+    LevelCompletePanel,
+    GameOverPanel
 }
 
 public enum PanelState
 {
-    OPEN,
-    CLOSE
+    Open,
+    Close
 }

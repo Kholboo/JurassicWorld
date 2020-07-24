@@ -6,14 +6,13 @@ using Sirenix.OdinInspector;
 
 public class GameManager : MonoBehaviour
 {
-    public enum States { Start, Play, GameOver, Completed, Replay, Pause }
     static GameManager instance;
     public static GameManager Instance
     {
         get { return instance; }
     }
     [EnumToggleButtons]
-    public States gameState;
+    public GameState gameState;
     [HideInInspector]
     public PanelManager panelManager;
     [HideInInspector]
@@ -26,8 +25,6 @@ public class GameManager : MonoBehaviour
     public TapticManager tapticManager;
     [HideInInspector]
     public FileManager fileManager;
-    [HideInInspector]
-    public EventManager eventManager;
 
     void Awake()
     {
@@ -47,27 +44,26 @@ public class GameManager : MonoBehaviour
         coinManager = GetComponent<CoinManager>();
         tapticManager = GetComponent<TapticManager>();
         fileManager = GetComponent<FileManager>();
-        eventManager = GetComponent<EventManager>();
 
         if (levelManager.IsLevelUp())
         {
-            panelManager.ChangeState(Panels.HOMEPANEL, PanelState.CLOSE);
+            panelManager.ChangeState(Panels.HomePanel, false);
 
             levelManager.LevelUp(false);
-            SetState(States.Start);
+            SetState(GameState.Start);
 
-            panelManager.ChangeState(Panels.HUDPANEL, PanelState.OPEN);
+            panelManager.ChangeState(Panels.HUDPanel, true);
         }
     }
 
-    public bool CheckState(States state)
+    public bool CheckState(GameState state)
     {
         return gameState == state;
     }
 
-    public void SetState(States state)
+    public void SetState(GameState state)
     {
-        if (state == States.Replay)
+        if (state == GameState.Replay)
         {
             Replay();
             return;
@@ -80,4 +76,14 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+}
+
+public enum GameState
+{
+    Start,
+    Play,
+    GameOver,
+    Completed,
+    Replay,
+    Pause
 }

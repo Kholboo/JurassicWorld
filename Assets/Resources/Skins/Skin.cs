@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Skin : MonoBehaviour
 {
     public UIType uiType;
-    [ShowIf("uiType", UIType.SPRITE)]
+    [ShowIf("uiType", UIType.Sprite)]
     public SpriteType spriteType;
 
     void Awake()
@@ -19,7 +19,7 @@ public class Skin : MonoBehaviour
     {
         switch (spriteType)
         {
-            case SpriteType.PLAYBUTTON:
+            case SpriteType.PlayButton:
                 GetComponent<Image>().sprite = SkinManager.Instance.SelectedSkin.playButton;
                 break;
         }

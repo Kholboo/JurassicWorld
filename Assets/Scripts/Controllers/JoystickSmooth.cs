@@ -31,7 +31,7 @@ public class JoystickSmooth : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.CheckState(GameManager.States.Play))
+        if (GameManager.Instance.CheckState(GameState.Play))
         {
             switch (ControllerDirection)
             {
