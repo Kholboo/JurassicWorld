@@ -10,17 +10,49 @@ public class Skin : MonoBehaviour
     [ShowIf("uiType", UIType.Sprite)]
     public SpriteType spriteType;
 
+    [ShowIf("uiType", UIType.Text)]
+    public ColorType colorType;
+
     void Awake()
     {
         SkinManager.OnChange += OnChange;
     }
 
+    void Start()
+    {
+        OnChange();
+    }
+
     void OnChange()
+    {
+        switch (uiType)
+        {
+            case UIType.Sprite:
+                ChangeSprite();
+                break;
+            case UIType.Text:
+                ChangeTextColor();
+                break;
+        }
+
+    }
+
+    void ChangeSprite()
     {
         switch (spriteType)
         {
             case SpriteType.PlayButton:
                 GetComponent<Image>().sprite = SkinManager.Instance.SelectedSkin.playButton;
+                break;
+        }
+    }
+
+    void ChangeTextColor()
+    {
+        switch (colorType)
+        {
+            case ColorType.PlayButton:
+                GetComponent<Text>().color = SkinManager.Instance.SelectedSkin.playButtonColor;
                 break;
         }
     }

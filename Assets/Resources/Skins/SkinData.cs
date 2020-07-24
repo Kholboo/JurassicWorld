@@ -4,5 +4,13 @@
 public class SkinData : ScriptableObject
 {
     public string skinName;
+
+    [Header("Buttons")]
+    [Space(4)]
     public Sprite playButton;
+
+    [Header("Colors")]
+    [Space(4)]
+    public Color playButtonColor;
+
 }

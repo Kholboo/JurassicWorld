@@ -5,4 +5,8 @@ using UnityEngine.UI;
 
 public class GameOverPanel : MonoBehaviour
 {
+    public void Replay()
+    {
+        GameManager.Instance.SetState(GameState.Replay);
+    }
 }

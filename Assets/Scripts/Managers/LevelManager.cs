@@ -66,6 +66,7 @@ public class LevelManager : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("Session", GetSession() + 1);
+        LevelUp(true);
     }
 
     int GetSession()
