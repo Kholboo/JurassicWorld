@@ -23,7 +23,7 @@ public class PanelManager : MonoBehaviour
 
     GameObject FindPanel(Panels panel)
     {
-        GameObject _panel = new GameObject();
+        GameObject _panel = null;
 
         switch (panel)
         {
