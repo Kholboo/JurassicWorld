@@ -18,14 +18,14 @@ public class FollowFinger : MonoBehaviour {
     public BorderType borderType;
     //[SerializeField]
     public Vector2 moveStepUnit, moveRange;
-    Vector2 world_start_pos, worldDistance, deltaSpeed;
-    Vector3 pos_start, pos_center, pos_distance;
+    Vector2 worldStartPos, worldDistance, deltaSpeed;
+    Vector3 posStart, posCenter, posDistance;
     GameObject ground;
     bool isReset = false;
     float resetTimer = 0;
     private void Start () {
         //transform.GetComponent<MeshRenderer>().enabled = false;
-        pos_center = Vector3.zero;
+        posCenter = Vector3.zero;
         moveStepUnit.x = 10;
         moveStepUnit.y = 10;
         moveRange.x = moveStepUnit.x / 2;
@@ -37,22 +37,22 @@ public class FollowFinger : MonoBehaviour {
     }
 
     private void GetDistanceMove () {
-        pos_start = Input.mousePosition;
+        posStart = Input.mousePosition;
         //Move X
-        world_start_pos.x = ((moveStepUnit.x * Input.mousePosition.x) / deltaSpeed.x);
-        worldDistance.x = world_start_pos.x - transform.localPosition.x;
+        worldStartPos.x = ((moveStepUnit.x * Input.mousePosition.x) / deltaSpeed.x);
+        worldDistance.x = worldStartPos.x - transform.localPosition.x;
         //Move Y
-        world_start_pos.y = ((moveStepUnit.y * Input.mousePosition.y) / deltaSpeed.y);
-        worldDistance.y = world_start_pos.y - transform.localPosition.z;
+        worldStartPos.y = ((moveStepUnit.y * Input.mousePosition.y) / deltaSpeed.y);
+        worldDistance.y = worldStartPos.y - transform.localPosition.z;
     }
     private void Update () {
         if (Input.GetMouseButtonDown (0)) {
             GetDistanceMove ();
         }
         if (Input.GetMouseButton (0)) {
-            pos_distance = Input.mousePosition - pos_start;
-            float goX = (moveStepUnit.x * pos_distance.x) / deltaSpeed.x + world_start_pos.x - worldDistance.x;
-            float goY = (moveStepUnit.y * pos_distance.y) / deltaSpeed.y + world_start_pos.y - worldDistance.y;
+            posDistance = Input.mousePosition - posStart;
+            float goX = (moveStepUnit.x * posDistance.x) / deltaSpeed.x + worldStartPos.x - worldDistance.x;
+            float goY = (moveStepUnit.y * posDistance.y) / deltaSpeed.y + worldStartPos.y - worldDistance.y;
             Vector3 pos_go = new Vector3 (goX, transform.localPosition.y, goY);
             if (movementType == MovementType.HORIZONTAL) {
                 pos_go = new Vector3 (goX, transform.localPosition.y, transform.localPosition.z);
@@ -81,12 +81,12 @@ public class FollowFinger : MonoBehaviour {
                 }
             }
             if (borderType == BorderType.ROUND) {
-                float pos_dist = PointInsideSphere (pos_go, pos_center, moveRange.x);
+                float pos_dist = PointInsideSphere (pos_go, posCenter, moveRange.x);
                 if (pos_dist > moveRange.x) //If the distance is less than the radius, it is already within the circle.
                 {
-                    Vector3 v = pos_go - pos_center;
+                    Vector3 v = pos_go - posCenter;
                     v = Vector3.ClampMagnitude (v, moveRange.x);
-                    pos_go = pos_center + v;
+                    pos_go = posCenter + v;
                     isReset = true;
                 }
             }
