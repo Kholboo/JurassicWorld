@@ -72,11 +72,7 @@ public class FollowFinger : MonoBehaviour {
             DestroyImmediate (GameObject.Find ("HolderPlayer").gameObject);
         }
     }
-    // public void RotateHolder () {
-    //     if (parentChild != null) {
-    //         parentChild.transform.eulerAngles = new Vector3 (0, roteteAngleY, 0);
-    //     }
-    // }
+    
     private void Awake () {
 
     }
