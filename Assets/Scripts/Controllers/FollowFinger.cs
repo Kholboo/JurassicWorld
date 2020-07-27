@@ -9,13 +9,14 @@ public class FollowFinger : MonoBehaviour {
     public float moveSpeed = 10.0f;
     [Range (0f, 10.0f)]
     public float rotateSpeed = 0.15f;
-    public bool FollowRotate = true;
     public enum BorderType {
         RECTANGLE,
         ROUND
     }
     public ControllerDirection movementType;
     public BorderType borderType;
+    public bool FollowRotate = true;
+    public bool unStop = false;
     public Vector2 moveStepUnit = new Vector2 (10, 10), moveRange;
     private Vector2 worldStartPos, worldDistance, deltaSpeed;
     private Vector3 posStart, posCenter, posDistance;
@@ -72,7 +73,7 @@ public class FollowFinger : MonoBehaviour {
             DestroyImmediate (GameObject.Find ("HolderPlayer").gameObject);
         }
     }
-    
+
     private void Awake () {
 
     }
@@ -80,14 +81,11 @@ public class FollowFinger : MonoBehaviour {
         if (GameObject.Find ("HolderPlayer") != null) {
             parentChild = GameObject.Find ("HolderPlayer");
         }
-        //transform.GetComponent<MeshRenderer>().enabled = false;
-        //if (parentChild != null) roteteAngleY = parentChild.transform.eulerAngles.y;
         posCenter = Vector3.zero;
         moveRange.x = moveStepUnit.x / 2;
         moveRange.y = moveStepUnit.y / 2;
         deltaSpeed.x = Screen.width;
         deltaSpeed.y = Screen.width;
-
         indicator = transform.localPosition;
     }
 
@@ -153,31 +151,43 @@ public class FollowFinger : MonoBehaviour {
         indicator = posGo;
 
         //INDICATOR.....
-        MovementIndicator ();
+        MovementIndicator (goY);
     }
-    private void MovementIndicator () {
+    private void MovementIndicator (float _y) {
         if (FollowRotate) {
-            Vector3 dir = indicator - transform.localPosition;
-            if (dir.magnitude > 0.1f) {
-                //if (isInfinity) dir = Vector3.ClampMagnitude (indicator.transform.localPosition, showMaxDistance.x);
+            Vector3 smoothLook = new Vector3(indicator.x,indicator.y, _y);
+            print(smoothLook.z);
+            // RaycastHit hit;
+            // Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+            // if (Physics.Raycast (ray, out hit, 100)) {
+            //     //Transform objectHit = hit.transform;
+            //     smoothLook = new Vector3 (indicator.x, indicator.y, hit.point.z);
+            //     //print(hit.point+" >>>>> "+smoothLook);
+            //     // Do something with the object that was hit by the raycast.
+            // }
+
+            Vector3 dir = smoothLook - transform.localPosition;
+            if (unStop) dir = Vector3.ClampMagnitude (smoothLook, moveStepUnit.x);
+            //if (dir.magnitude > 0.1f) 
+            {
                 transform.localRotation = Quaternion.Slerp (transform.localRotation, Quaternion.LookRotation (dir), rotateSpeed);
             }
         }
         float targetX = indicator.x;
         float targetY = indicator.z;
+        if (unStop) {
+            //if (movementType == ControllerDirection.Horizontal) 
+            {
+                //print(smoothLook);
+                targetX = transform.localPosition.x + indicator.x / 2f;
+                targetY = transform.localPosition.z + indicator.z / 2f;
+            }
+        }
         Vector3 posTarget = new Vector3 (targetX, transform.localPosition.y, targetY);
         transform.localPosition = Vector3.Lerp (transform.localPosition, posTarget, moveSpeed * Time.deltaTime);
     }
     private float PointInsideSphere (Vector3 point, Vector3 center, float radius) {
         return Vector3.Distance (point, center);
-    }
-}
-
-public class MyClass {
-
-    [CustomValueDrawer ("RotateY")]
-    public float rotY;
-    private float RotateY (float value, GUIContent label) {
-        return EditorGUILayout.Slider (label, value, 0f, 90f);
     }
 }
