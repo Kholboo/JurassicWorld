@@ -79,18 +79,6 @@ public class FollowFinger : MonoBehaviour {
         indicatorChild.GetComponent<Renderer> ().sharedMaterial = tempMaterial;
         DestroyImmediate (indicatorChild.GetComponent<SphereCollider> ());
     }
-    // public void RemoveParentChild () {
-    //     roteteAngleY = 0;
-
-    //     if (this.gameObject.transform.parent != null) {
-    //         this.transform.parent = this.gameObject.transform.parent.transform.parent;
-    //         GameObject.DestroyImmediate (parentChild);
-    //     }
-    //     if (GameObject.Find ("HolderPlayer") != null) {
-    //         DestroyImmediate (GameObject.Find ("HolderPlayer").gameObject);
-    //     }
-    // }
-
     private void Start () {
         if (GameObject.Find ("HolderPlayer") != null) {
             parentChild = GameObject.Find ("HolderPlayer");
