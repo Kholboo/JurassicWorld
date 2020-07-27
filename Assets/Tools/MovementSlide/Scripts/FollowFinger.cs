@@ -1,64 +1,108 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-
 public class FollowFinger : MonoBehaviour {
-    private float _rotateAngle;
-    public float roteteAngleY {
-        get { return _rotateAngle; }
-        set { _rotateAngle = value; }
-    }
+    [Range (1.0f, 20.0f)]
+    public float moveSpeed = 10.0f;
+    [Range (0f, 10.0f)]
+    public float rotateSpeed = 0.15f;
+    public bool FollowRotate = true;
     public enum BorderType {
         RECTANGLE,
         ROUND
     }
     public ControllerDirection movementType;
     public BorderType borderType;
-    public Vector2 moveStepUnit, moveRange;
+    public Vector2 moveStepUnit = new Vector2 (10, 10), moveRange;
     private Vector2 worldStartPos, worldDistance, deltaSpeed;
-    private Vector3 posStart, posCenter, posDistance, posDirection;
-
+    private Vector3 posStart, posCenter, posDistance;
+    private Vector3 indicator;
     private bool isReset = false;
-    private float resetTimer = 0, directionTimer;
+    private float resetTimer = 0;
     private GameObject parentChild;
+    [ReadOnly]
+    public bool isHolder;
+
+    [HideIf ("isHolder", true)]
+    [Button (ButtonSizes.Medium)]
+    public void CreateHolder () {
+        isHolder = !isHolder;
+        CreateParentChild ();
+    }
+
+    [ShowIf ("isHolder", true)]
+    [Button (ButtonSizes.Medium)]
+    public void DeleteHolder () {
+        isHolder = !isHolder;
+        RemoveParentChild ();
+    }
+
+    [ShowIf ("isHolder", true)]
+    [CustomValueDrawer ("AngleY")]
+    public float roteteAngleY;
+    private float AngleY (float value, GUIContent label) {
+        if (parentChild != null) {
+            parentChild.transform.eulerAngles = new Vector3 (0, value, 0);
+
+        }
+        return EditorGUILayout.Slider (value, 0f, 90f);;
+    }
+
     public void CreateParentChild () {
-        parentChild = new GameObject ("HolderPlayer");
+        if (GameObject.Find ("HolderPlayer") != null) {
+            parentChild = GameObject.Find ("HolderPlayer");
+        } else {
+            parentChild = new GameObject ("HolderPlayer");
+        }
         parentChild.transform.parent = this.gameObject.transform.parent;
         this.transform.parent = parentChild.transform;
         transform.eulerAngles = Vector3.zero;
-        roteteAngleY = 0;
     }
     public void RemoveParentChild () {
         roteteAngleY = 0;
+
         if (this.gameObject.transform.parent != null) {
             this.transform.parent = this.gameObject.transform.parent.transform.parent;
             GameObject.DestroyImmediate (parentChild);
         }
-    }
-    public void RotateHolder () {
-        if (parentChild != null) {
-            parentChild.transform.eulerAngles = new Vector3 (0, roteteAngleY, 0);
+        if (GameObject.Find ("HolderPlayer") != null) {
+            DestroyImmediate (GameObject.Find ("HolderPlayer").gameObject);
         }
     }
+    // public void RotateHolder () {
+    //     if (parentChild != null) {
+    //         parentChild.transform.eulerAngles = new Vector3 (0, roteteAngleY, 0);
+    //     }
+    // }
+    private void Awake () {
+
+    }
     private void Start () {
+        if (GameObject.Find ("HolderPlayer") != null) {
+            parentChild = GameObject.Find ("HolderPlayer");
+        }
         //transform.GetComponent<MeshRenderer>().enabled = false;
+        //if (parentChild != null) roteteAngleY = parentChild.transform.eulerAngles.y;
         posCenter = Vector3.zero;
         moveRange.x = moveStepUnit.x / 2;
         moveRange.y = moveStepUnit.y / 2;
         deltaSpeed.x = Screen.width;
         deltaSpeed.y = Screen.width;
+
+        indicator = transform.localPosition;
     }
 
     private void GetDistanceMove () {
         posStart = Input.mousePosition;
         //Move X
         worldStartPos.x = ((moveStepUnit.x * Input.mousePosition.x) / deltaSpeed.x);
-        worldDistance.x = worldStartPos.x - transform.localPosition.x;
+        worldDistance.x = worldStartPos.x - indicator.x;
         //Move Y
         worldStartPos.y = ((moveStepUnit.y * Input.mousePosition.y) / deltaSpeed.y);
-        worldDistance.y = worldStartPos.y - transform.localPosition.z;
+        worldDistance.y = worldStartPos.y - indicator.z;
     }
     private void Update () {
         if (Input.GetMouseButtonDown (0)) {
@@ -83,12 +127,12 @@ public class FollowFinger : MonoBehaviour {
         posDistance = Input.mousePosition - posStart;
         float goX = (moveStepUnit.x * posDistance.x) / deltaSpeed.x + worldStartPos.x - worldDistance.x;
         float goY = (moveStepUnit.y * posDistance.y) / deltaSpeed.y + worldStartPos.y - worldDistance.y;
-        Vector3 posGo = new Vector3 (goX, transform.localPosition.y, goY);
+        Vector3 posGo = new Vector3 (goX, indicator.y, goY);
         if (movementType == ControllerDirection.Horizontal) {
-            posGo = new Vector3 (goX, transform.localPosition.y, transform.localPosition.z);
+            posGo = new Vector3 (goX, indicator.y, indicator.z);
         }
         if (movementType == ControllerDirection.Vertical) {
-            posGo = new Vector3 (transform.localPosition.x, transform.localPosition.y, goY);
+            posGo = new Vector3 (indicator.x, indicator.y, goY);
         }
         if (borderType == BorderType.RECTANGLE) {
             //Max range distance HORIZONTAL
@@ -110,24 +154,34 @@ public class FollowFinger : MonoBehaviour {
                 isReset = true;
             }
         }
-        transform.localPosition = posGo;
-        directionTimer += Time.deltaTime;
-        if (directionTimer >= 0.01f) {
-            directionTimer = 0;
-            posDirection = transform.localPosition;
+        indicator = posGo;
+
+        //INDICATOR.....
+        MovementIndicator ();
+    }
+    private void MovementIndicator () {
+        if (FollowRotate) {
+            Vector3 dir = indicator - transform.localPosition;
+            if (dir.magnitude > 0.1f) {
+                //if (isInfinity) dir = Vector3.ClampMagnitude (indicator.transform.localPosition, showMaxDistance.x);
+                transform.localRotation = Quaternion.Slerp (transform.localRotation, Quaternion.LookRotation (dir), rotateSpeed);
+            }
         }
-        //     Vector3 direction = indicator.transform.localPosition - transform.localPosition;
-        //     Vector3 dir = Vector3.ClampMagnitude (indicator.transform.localPosition, maxDistance);
-        //     transform.localRotation = Quaternion.Slerp (transform.localRotation, Quaternion.LookRotation (dir), 0.2f);
+        float targetX = indicator.x;
+        float targetY = indicator.z;
+        Vector3 posTarget = new Vector3 (targetX, transform.localPosition.y, targetY);
+        transform.localPosition = Vector3.Lerp (transform.localPosition, posTarget, moveSpeed * Time.deltaTime);
     }
-    private void FixedUpdate () {
-        directionTimer = 0;
-        Vector3 dir = posDirection - transform.localPosition;
-        //if (isInfinity) dir = Vector3.ClampMagnitude (indicator.transform.localPosition, showMaxDistance.x);
-        transform.localRotation = Quaternion.Slerp (transform.localRotation, Quaternion.LookRotation (dir), 0.2f);
-    }
-    float PointInsideSphere (Vector3 point, Vector3 center, float radius) {
-        //return Vector3.Distance(point, center) < radius;
+    private float PointInsideSphere (Vector3 point, Vector3 center, float radius) {
         return Vector3.Distance (point, center);
+    }
+}
+
+public class MyClass {
+
+    [CustomValueDrawer ("RotateY")]
+    public float rotY;
+    private float RotateY (float value, GUIContent label) {
+        return EditorGUILayout.Slider (label, value, 0f, 90f);
     }
 }
