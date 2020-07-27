@@ -18,9 +18,9 @@ public class FollowFinger : MonoBehaviour {
 
     [InfoBox ("Follow object movement type")]
     public ControllerDirection movementType;
-    private bool aaa = true;
+    private bool ShowStop = false;
     public bool FollowRotate = true;
-    [EnableIf ("aaa", true)]
+    [ShowIf ("ShowStop", true)]
     public bool unStop = false;
     public Vector2 moveStepUnit = new Vector2 (10, 10), moveRange;
     private Vector2 worldStartPos, worldDistance, deltaSpeed;
@@ -117,9 +117,9 @@ public class FollowFinger : MonoBehaviour {
             if (transform.eulerAngles != Vector3.zero) transform.eulerAngles = Vector3.zero;
         }
         if ((rangeType == RangeType.RECTANGLE && movementType == ControllerDirection.Horizontal) || (rangeType == RangeType.RECTANGLE && movementType == ControllerDirection.Vertical)) {
-            aaa = true;
+            ShowStop = true;
         } else {
-            aaa = false;
+            ShowStop = false;
             unStop = false;
         }
         if (Input.GetMouseButtonDown (0)) {
