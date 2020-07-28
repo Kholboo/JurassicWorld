@@ -22,12 +22,12 @@ public class SkinManager : MonoBehaviour
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
-            return;
+            return; 
         }
 
         instance = this;
 
-        ChangeSkin(1);
+        ChangeSkin(0);
     }
 
     public void ChangeSkin(int index)
