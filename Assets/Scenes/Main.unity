@@ -305,7 +305,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1e-44, z: 4.268e-42, w: 1.05e-43}
+  m_BoundingSphereOverride: {x: 1.4838688e-19, y: 4.465268e+30, z: 1.6034702e+28,
+    w: 6.8608197e+22}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -341,7 +342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &233121055
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1103,7 +1104,7 @@ GameObject:
   - component: {fileID: 692585214}
   - component: {fileID: 692585213}
   m_Layer: 5
-  m_Name: Text
+  m_Name: CollectText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2146,7 +2147,7 @@ GameObject:
   - component: {fileID: 2020689161}
   - component: {fileID: 2020689163}
   m_Layer: 5
-  m_Name: CollectableGem
+  m_Name: CollectIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2159,7 +2160,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020689159}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
