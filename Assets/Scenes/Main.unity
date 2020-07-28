@@ -2145,6 +2145,7 @@ GameObject:
   - component: {fileID: 2020689162}
   - component: {fileID: 2020689161}
   - component: {fileID: 2020689163}
+  - component: {fileID: 2020689164}
   m_Layer: 5
   m_Name: CollectIcon
   m_TagString: Untagged
@@ -2222,6 +2223,25 @@ MonoBehaviour:
   uiType: 0
   spriteType: 1
   colorType: 0
+--- !u!95 &2020689164
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020689159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0160a4539139b44f9ce1c134ff8645c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2081469125
 GameObject:
   m_ObjectHideFlags: 0
