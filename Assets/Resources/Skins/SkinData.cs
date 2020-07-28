@@ -9,6 +9,10 @@ public class SkinData : ScriptableObject
     [Space(4)]
     public Sprite playButton;
 
+    [Header("Collectable")]
+    [Space(4)]
+    public Sprite coin;
+
     [Header("Colors")]
     [Space(4)]
     public Color playButtonColor;

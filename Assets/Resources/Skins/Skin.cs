@@ -44,7 +44,12 @@ public class Skin : MonoBehaviour
             case SpriteType.PlayButton:
                 GetComponent<Image>().sprite = SkinManager.Instance.SelectedSkin.playButton;
                 break;
+            case SpriteType.Coin:
+                GetComponent<Image>().sprite = SkinManager.Instance.SelectedSkin.coin;
+                break;
         }
+
+        GetComponent<Image>().SetNativeSize();
     }
 
     void ChangeTextColor()
