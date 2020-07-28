@@ -8,6 +8,8 @@ public class SkinData : ScriptableObject
     [Header("Buttons")]
     [Space(4)]
     public Sprite playButton;
+    public Sprite replayButton;
+
 
     [Header("Collectable")]
     [Space(4)]
