@@ -27,7 +27,7 @@ public class SkinManager : MonoBehaviour
 
         instance = this;
 
-        // ChangeSkin(0);
+        ChangeSkin(1);
     }
 
     public void ChangeSkin(int index)
@@ -47,6 +47,7 @@ public enum UIType
 public enum SpriteType
 {
     PlayButton,
+    Coin,
 }
 
 public enum ColorType

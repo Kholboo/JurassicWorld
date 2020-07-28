@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinName: v2
   playButton: {fileID: 21300000, guid: 48c0d4d6bebaa934384b07aa1e2f8184, type: 3}
+  coin: {fileID: 21300000, guid: 0e02490e7c4b9442fae2bd0dc631c86e, type: 3}
   playButtonColor: {r: 1, g: 1, b: 1, a: 1}
