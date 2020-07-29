@@ -16,7 +16,7 @@ public class SpreadCollectable : MonoBehaviour {
 
     void Awake () {
         instance = this;
-        speed = Random.Range (5, 7);
+        speed = Random.Range (8, 10);
         spreadSpeed = Random.Range (2, 4);
     }
     public void Spawn () {
