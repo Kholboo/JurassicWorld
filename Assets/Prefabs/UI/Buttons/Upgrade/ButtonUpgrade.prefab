@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 3246406239387467010}
   - component: {fileID: 3246406239387467012}
   - component: {fileID: 3246406239387467011}
+  - component: {fileID: 996549252785855531}
   m_Layer: 5
   m_Name: ButtonUpgrade
   m_TagString: Untagged
@@ -512,6 +513,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &996549252785855531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246406239387467009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.1882353, g: 0.1882353, b: 0.18431373, a: 0.4}
+  m_EffectDistance: {x: 0, y: -10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3246406239672705222
 GameObject:
   m_ObjectHideFlags: 0
