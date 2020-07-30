@@ -14,6 +14,7 @@ public class UICoin : MonoBehaviour {
         euler = transform.eulerAngles;
         euler.z = Random.Range (0f, 360f);
         randomDelay = Random.Range (0.8f, 1f);
+        SpreadCollectable.instance.delay = randomDelay * 2;
         animator = SpreadCollectable.instance.targetObject.GetComponent<Animator> ();
         transform.eulerAngles = euler;
         transform.localScale = new Vector3 (SpreadCollectable.instance.startSize, SpreadCollectable.instance.startSize, SpreadCollectable.instance.startSize);
@@ -45,6 +46,5 @@ public class UICoin : MonoBehaviour {
         yield return new WaitForSeconds (randomDelay);
         animator.Play ("CollectableScale");
         GameManager.Instance.tapticManager.Impact (HapticTypes.HeavyImpact);
-
     }
 }
