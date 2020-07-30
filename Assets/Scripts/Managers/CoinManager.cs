@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
+    public static event Action UpdateCoinText = delegate { };
     int levelCoin;
     public int LevelCoin
     {
@@ -19,5 +20,6 @@ public class CoinManager : MonoBehaviour
     {
         levelCoin += coin;
         PlayerPrefs.SetInt("Coin", GetTotalCoin() + coin);
+        UpdateCoinText();
     }
 }
