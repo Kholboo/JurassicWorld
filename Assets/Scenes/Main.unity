@@ -522,7 +522,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.305e-42, y: 7.17e-43, z: 3.59e-43, w: 0}
+  m_BoundingSphereOverride: {x: 0.11328125, y: 0.03125, z: 0.02734375, w: -0.03125}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -558,7 +558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &233121055
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1807,6 +1807,7 @@ GameObject:
   - component: {fileID: 1008231754}
   - component: {fileID: 1008231753}
   - component: {fileID: 1008231755}
+  - component: {fileID: 1008231756}
   m_Layer: 5
   m_Name: HUDPanel
   m_TagString: Untagged
@@ -1888,6 +1889,25 @@ MonoBehaviour:
   coinText: {fileID: 692585213}
   currentLevelText: {fileID: 1435688738}
   nextLevelText: {fileID: 1435688739}
+--- !u!95 &1008231756
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008231751}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8730ffe26b5c14a49a68743705d7669c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1021466764
 GameObject:
   m_ObjectHideFlags: 0

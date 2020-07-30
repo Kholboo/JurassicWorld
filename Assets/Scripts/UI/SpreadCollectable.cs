@@ -7,12 +7,13 @@ public class SpreadCollectable : MonoBehaviour {
     public GameObject spawnObject, targetObject;
     [Range (0, 500)]
     public int spreadRangeX, spreadRangeY;
-    GameObject spawnObjects;
     [Range (1, 15)]
     public int speed, spreadSpeed;
     [Range (0, 2)]
     public float startSize;
     public int spawnCount;
+    [HideInInspector]
+    public float delay;
 
     void Awake () {
         instance = this;
@@ -21,7 +22,7 @@ public class SpreadCollectable : MonoBehaviour {
     }
     public void Spawn () {
         for (int i = 0; i <= spawnCount; i++) {
-            spawnObjects = Instantiate (spawnObject, transform.position, Quaternion.identity);
+            Instantiate (spawnObject, transform.position, Quaternion.identity);
         }
     }
 }
