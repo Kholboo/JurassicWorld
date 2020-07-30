@@ -2880,6 +2880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c103de926f448407ba9f3cf58a674621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelCollectable: {fileID: 903439757}
   totalCoinText: {fileID: 1788887189}
   levelCoinText: {fileID: 25442030}
   spreadCollectable: {fileID: 792685531}

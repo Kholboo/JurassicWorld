@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LevelCompletePanel : MonoBehaviour
 {
+    public GameObject levelCollectable;
     public Text totalCoinText;
     public Text levelCoinText;
     public SpreadCollectable spreadCollectable;
@@ -13,11 +14,16 @@ public class LevelCompletePanel : MonoBehaviour
     void OnEnable()
     {
         totalCoinText.text = GameManager.Instance.coinManager.GetTotalCoin().ToString();
-        levelCoinText.text = "+" + GameManager.Instance.coinManager.LevelCoin.ToString();
 
+        // if (GameManager.Instance.coinManager.LevelCoin > 0)
+        // {
+        levelCollectable.SetActive(true);
+        levelCoinText.text = "+" + GameManager.Instance.coinManager.LevelCoin.ToString();
         spreadCollectable.Spawn();
 
         StartCoroutine(UpdateCoinText());
+        // }
+
         // GameManager.Instance.levelManager.SaveLevel();
     }
 
