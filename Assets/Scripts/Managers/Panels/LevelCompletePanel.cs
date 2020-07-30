@@ -15,14 +15,14 @@ public class LevelCompletePanel : MonoBehaviour
     {
         totalCoinText.text = GameManager.Instance.coinManager.GetTotalCoin().ToString();
 
-        // if (GameManager.Instance.coinManager.LevelCoin > 0)
-        // {
-        levelCollectable.SetActive(true);
-        levelCoinText.text = "+" + GameManager.Instance.coinManager.LevelCoin.ToString();
-        spreadCollectable.Spawn();
+        if (GameManager.Instance.coinManager.LevelCoin > 0)
+        {
+            levelCollectable.SetActive(true);
+            levelCoinText.text = "+" + GameManager.Instance.coinManager.LevelCoin.ToString();
+            spreadCollectable.Spawn();
 
-        StartCoroutine(UpdateCoinText());
-        // }
+            StartCoroutine(UpdateCoinText());
+        }
 
         // GameManager.Instance.levelManager.SaveLevel();
     }
