@@ -5,10 +5,19 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     public static event Action UpdateCoinText = delegate { };
-    int levelCoin;
+    int levelCoin = 0;
     public int LevelCoin
     {
-        get { return levelCoin; }
+        get { return levelCoin * multiplier; }
+    }
+    int multiplier = 1;
+    public int Multiplier
+    {
+        get { return multiplier; }
+        set
+        {
+            multiplier = value;
+        }
     }
 
     public int GetTotalCoin()
