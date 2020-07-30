@@ -18,7 +18,6 @@ public class UICoin : MonoBehaviour
         euler = transform.eulerAngles;
         euler.z = Random.Range(0f, 360f);
         randomDelay = Random.Range(0.8f, 1f);
-        spreadCollectable.delay = randomDelay * 2;
         animator = spreadCollectable.targetObject.GetComponent<Animator>();
         transform.eulerAngles = euler;
         transform.localScale = new Vector3(spreadCollectable.startSize, spreadCollectable.startSize, spreadCollectable.startSize);

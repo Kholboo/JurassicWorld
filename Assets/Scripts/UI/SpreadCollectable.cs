@@ -12,8 +12,6 @@ public class SpreadCollectable : MonoBehaviour
     [Range(0, 2)]
     public float startSize;
     public int spawnCount;
-    [HideInInspector]
-    public float delay;
 
     void Awake()
     {
