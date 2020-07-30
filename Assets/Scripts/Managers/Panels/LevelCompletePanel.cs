@@ -13,6 +13,7 @@ public class LevelCompletePanel : MonoBehaviour
     void OnEnable()
     {
         totalCoinText.text = GameManager.Instance.coinManager.GetTotalCoin().ToString();
+        levelCoinText.text = "+" + GameManager.Instance.coinManager.LevelCoin.ToString();
 
         spreadCollectable.Spawn();
 
@@ -28,7 +29,7 @@ public class LevelCompletePanel : MonoBehaviour
     IEnumerator UpdateCoinText()
     {
         yield return new WaitForSeconds(1.9f);
-        GameManager.Instance.coinManager.UpdateCoin(10);
+        GameManager.Instance.coinManager.UpdateCoin(GameManager.Instance.coinManager.LevelCoin);
         totalCoinText.text = GameManager.Instance.coinManager.GetTotalCoin().ToString();
     }
 }

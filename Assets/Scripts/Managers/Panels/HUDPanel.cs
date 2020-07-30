@@ -14,15 +14,14 @@ public class HUDPanel : MonoBehaviour
     void OnEnable()
     {
         CoinManager.UpdateCoinText += UpdateCoinText;
+
         LevelStart();
+        UpdateCoinText();
 
         int level = GameManager.Instance.levelManager.GetLevel();
         currentLevelText.text = level.ToString();
         nextLevelText.text = (level + 1).ToString();
-
-        UpdateCoinText();
     }
-
 
     void UpdateCoinText()
     {

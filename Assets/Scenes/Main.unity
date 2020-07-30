@@ -441,7 +441,6 @@ MonoBehaviour:
   spreadSpeed: 3
   startSize: 0.68
   spawnCount: 20
-  delay: 0
 --- !u!222 &100391913
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1496,7 +1495,6 @@ MonoBehaviour:
   spreadSpeed: 3
   startSize: 0.68
   spawnCount: 20
-  delay: 0
 --- !u!1 &796417553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,7 +2899,7 @@ PrefabInstance:
     - target: {fileID: 2521732495339035390, guid: 209daa6f31ec1451a925f3e563bb6b14,
         type: 3}
       propertyPath: m_Name
-      value: ButtonOvalBorder
+      value: ReplayButton
       objectReference: {fileID: 0}
     - target: {fileID: 2521732495339035391, guid: 209daa6f31ec1451a925f3e563bb6b14,
         type: 3}
@@ -3022,6 +3020,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.92941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534542479679178396, guid: 209daa6f31ec1451a925f3e563bb6b14,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534542479679178396, guid: 209daa6f31ec1451a925f3e563bb6b14,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534542479679178396, guid: 209daa6f31ec1451a925f3e563bb6b14,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534542479679178396, guid: 209daa6f31ec1451a925f3e563bb6b14,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1896475348}
+    - target: {fileID: 3534542479679178396, guid: 209daa6f31ec1451a925f3e563bb6b14,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Replay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534542479679178396, guid: 209daa6f31ec1451a925f3e563bb6b14,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 209daa6f31ec1451a925f3e563bb6b14, type: 3}
