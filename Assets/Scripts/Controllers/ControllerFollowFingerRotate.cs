@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-public class FollowFingerRotate : MonoBehaviour {
+public class ControllerFollowFingerRotate : MonoBehaviour {
     public Transform center;
     [Range (0.1f, 1.0f)]
     public float speedRotate = 0.5f;

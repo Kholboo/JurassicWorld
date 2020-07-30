@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
-public class FollowFinger : MonoBehaviour {
+public class ControllerFollowFinger : MonoBehaviour {
     [Range (1.0f, 20.0f)]
     public float moveSpeed = 10.0f;
     [Range (0f, 10.0f)]
