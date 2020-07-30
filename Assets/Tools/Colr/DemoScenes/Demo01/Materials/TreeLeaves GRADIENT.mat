@@ -36,7 +36,7 @@ Material:
     - _GradientYStartPos: 0
     - _IsWorldSpace: 1
     - _LayoutTexturePower: 0
-    - _LightmapPower: 1.04
+    - _LightmapPower: 0
     - _Rotation: 0
     - _ShadowPower: 1
     - _UseFogDistance: 0

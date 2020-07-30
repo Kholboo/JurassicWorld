@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class SwipeDetector : MonoBehaviour
+public class ControllerSwipeDetector : MonoBehaviour
 {
     Vector2 fingerDownPosition;
     Vector2 fingerUpPosition;

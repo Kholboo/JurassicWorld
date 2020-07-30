@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AmbientPower: 0.04
+    - _AmbientPower: 0.107
     - _FogHeight: 126.5
     - _FogStart: 0
     - _FogYStartPos: -66.6
@@ -37,8 +37,8 @@ Material:
     - _GradientYStartPos: -2.36
     - _IsWorldSpace: 1
     - _LayoutTexturePower: 0
-    - _LightmapPower: 0.2
-    - _Rotation: 0
+    - _LightmapPower: 0
+    - _Rotation: 3.23
     - _ShadowPower: 1
     - _UseFogDistance: 0
     - _UseLightMap: 1
@@ -57,7 +57,7 @@ Material:
     - _LeftColor: {r: 0.9450981, g: 0.2980393, b: 0.3917511, a: 0}
     - _LeftTopColor: {r: 0.9450981, g: 0.29803923, b: 0.3921569, a: 0}
     - _LightTint: {r: 1, g: 1, b: 1, a: 0}
-    - _LightmapColor: {r: 0, g: 0, b: 0, a: 0}
+    - _LightmapColor: {r: 1, g: 1, b: 1, a: 1}
     - _Point: {r: -38.3, g: 25.26, b: -4.15, a: 1}
     - _RightBottomColor: {r: 0.8068228, g: 0.13802983, b: 0.8161765, a: 0}
     - _RightColor: {r: 0.29803923, g: 0.7843138, b: 0.9450981, a: 0}

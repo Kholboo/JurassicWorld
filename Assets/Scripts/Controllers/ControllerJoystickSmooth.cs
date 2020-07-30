@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using System;
-public class JoystickSmooth : MonoBehaviour
+public class ControllerJoystickSmooth : MonoBehaviour
 {
     [EnumToggleButtons]
     [BoxGroup("ControllerDirection")]

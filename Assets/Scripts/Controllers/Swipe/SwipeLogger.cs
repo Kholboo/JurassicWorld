@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class SwipeLogger : MonoBehaviour
+public class ControllerSwipeLogger : MonoBehaviour
 {
     void Awake()
     {
-        SwipeDetector.OnSwipe += SwipeDetect;
+        ControllerSwipeDetector.OnSwipe += SwipeDetect;
     }
 
     void SwipeDetect(SwipeData data)
@@ -14,6 +14,6 @@ public class SwipeLogger : MonoBehaviour
 
     void OnDisable()
     {
-        SwipeDetector.OnSwipe -= SwipeDetect;
+        ControllerSwipeDetector.OnSwipe -= SwipeDetect;
     }
 }
