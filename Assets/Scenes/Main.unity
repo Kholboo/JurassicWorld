@@ -3911,7 +3911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c103de926f448407ba9f3cf58a674621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiAnimator: {fileID: 0}
   levelCompleteText: {fileID: 1873961168}
   replayButton: {fileID: 1111646507}
   levelCollectable: {fileID: 903439757}
