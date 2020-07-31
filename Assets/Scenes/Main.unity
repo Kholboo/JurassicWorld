@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44233507, g: 0.4203798, b: 0.47186604, a: 1}
+  m_IndirectSpecularColor: {r: 0.44233507, g: 0.42037976, b: 0.47186604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -379,7 +379,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 8.25e-43, y: 1.6699653e+12, z: 8.25e-43, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -712,18 +712,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 238405710}
   m_PrefabAsset: {fileID: 0}
---- !u!225 &238405713
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238405712}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!95 &238405714
 Animator:
   serializedVersion: 3
@@ -734,7 +722,7 @@ Animator:
   m_GameObject: {fileID: 238405712}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 569523beccc424f5bbc0395a0c8831ab, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8730ffe26b5c14a49a68743705d7669c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -882,7 +870,7 @@ PrefabInstance:
     - target: {fileID: 2521732495339035390, guid: 209daa6f31ec1451a925f3e563bb6b14,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2521732495339035391, guid: 209daa6f31ec1451a925f3e563bb6b14,
         type: 3}
@@ -1103,7 +1091,7 @@ Animator:
   m_GameObject: {fileID: 360272405}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c1fcf98a85ee8fb4caa7b208617af226, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8730ffe26b5c14a49a68743705d7669c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2256,7 +2244,6 @@ GameObject:
   - component: {fileID: 1079317655}
   - component: {fileID: 1079317657}
   - component: {fileID: 1079317656}
-  - component: {fileID: 1079317658}
   - component: {fileID: 1079317659}
   m_Layer: 5
   m_Name: TryAgainText
@@ -2324,18 +2311,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079317654}
   m_CullTransparentMesh: 0
---- !u!225 &1079317658
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079317654}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!95 &1079317659
 Animator:
   serializedVersion: 3
@@ -2346,7 +2321,7 @@ Animator:
   m_GameObject: {fileID: 1079317654}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 569523beccc424f5bbc0395a0c8831ab, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8730ffe26b5c14a49a68743705d7669c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2442,7 +2417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1166812024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2550,7 +2525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213658ceb7c494631a9d5c3e37c0d100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!1001 &1177194937
 PrefabInstance:
   m_ObjectHideFlags: 0
