@@ -10,6 +10,8 @@ public class HUDPanel : MonoBehaviour
     public Text coinText;
     public Text currentLevelText;
     public Text nextLevelText;
+    public GameObject tip;
+    bool hideTip;
 
     void OnEnable()
     {
@@ -21,6 +23,21 @@ public class HUDPanel : MonoBehaviour
         int level = GameManager.Instance.levelManager.GetLevel();
         currentLevelText.text = level.ToString();
         nextLevelText.text = (level + 1).ToString();
+    }
+
+    void Update()
+    {
+        if (GameManager.Instance.CheckState(GameState.Play))
+        {
+            if (Input.GetMouseButton(0))
+            {
+                if (!hideTip)
+                {
+                    hideTip = true;
+                    tip.SetActive(false);
+                }
+            }
+        }
     }
 
     void UpdateCoinText()
