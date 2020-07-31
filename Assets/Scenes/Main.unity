@@ -490,6 +490,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 109.60599, y: -893.96497, z: -318.542}
+--- !u!1 &200463439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3922897758806636031, guid: 6f7b5369816894107af7bd54e33b7e86,
+    type: 3}
+  m_PrefabInstance: {fileID: 1177194937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &233121054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,6 +2065,7 @@ MonoBehaviour:
   coinText: {fileID: 692585213}
   currentLevelText: {fileID: 1435688738}
   nextLevelText: {fileID: 1435688739}
+  tip: {fileID: 200463439}
 --- !u!1 &1021466764
 GameObject:
   m_ObjectHideFlags: 0
