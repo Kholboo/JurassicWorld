@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44233507, g: 0.4203798, b: 0.47186604, a: 1}
+  m_IndirectSpecularColor: {r: 0.44233507, g: 0.42037976, b: 0.47186604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -326,7 +326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 224.41661, y: -75}
+  m_AnchoredPosition: {x: 225.7958, y: -75}
   m_SizeDelta: {x: 129, y: 129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &85681708
@@ -472,7 +472,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.4602535e-19, y: 2.6450738e+20, z: 2.0332645e+32,
+    w: 3.1025154e+27}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -508,15 +509,13 @@ GameObject:
   - component: {fileID: 233121057}
   - component: {fileID: 233121056}
   - component: {fileID: 233121058}
-  - component: {fileID: 233121059}
-  - component: {fileID: 233121060}
   m_Layer: 5
   m_Name: HomePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &233121055
 RectTransform:
   m_ObjectHideFlags: 0
@@ -586,38 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eea7faccc8494bf5af8570d4e832a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playButton: {fileID: 700980624}
---- !u!225 &233121059
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233121054}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!95 &233121060
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233121054}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9750bab9fd73197449a5cb3d1f2e4792, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  uiAnimator: {fileID: 796417559}
 --- !u!1001 &238405710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1385,13 +1353,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.38268346, y: 0.000000022481265, z: -0.0000000093120445, w: 0.92387956}
+  m_LocalRotation: {x: 0.37946242, y: 0.119617544, z: -0.049547214, w: 0.91610324}
   m_LocalPosition: {x: 0, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45.000004, y: 14.878, z: 0}
 --- !u!114 &534669906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1847,7 +1815,7 @@ Animator:
   m_GameObject: {fileID: 796417553}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 099f3e7e52175fc4b9300ea582d02810, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2574,7 +2542,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111646507}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -3061,7 +3029,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -20, y: -50.000244}
-  m_SizeDelta: {x: 288.91663, y: 150}
+  m_SizeDelta: {x: 290.2958, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1433275757
 MonoBehaviour:
@@ -3344,8 +3312,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84.958305, y: -75}
-  m_SizeDelta: {x: 169.91661, y: 150}
+  m_AnchoredPosition: {x: 85.6479, y: -75}
+  m_SizeDelta: {x: 171.2958, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788887189
 MonoBehaviour:
@@ -3814,6 +3782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c103de926f448407ba9f3cf58a674621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiAnimator: {fileID: 796417559}
   levelCompleteText: {fileID: 1873961168}
   replayButton: {fileID: 1111646507}
   levelCollectable: {fileID: 903439757}
@@ -3841,7 +3810,7 @@ PrefabInstance:
     - target: {fileID: 2521732495339035390, guid: 209daa6f31ec1451a925f3e563bb6b14,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2521732495339035391, guid: 209daa6f31ec1451a925f3e563bb6b14,
         type: 3}

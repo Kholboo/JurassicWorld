@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LevelCompletePanel : MonoBehaviour
 {
+    public Animator uiAnimator;
     public GameObject levelCompleteText;
     public GameObject replayButton;
     public GameObject levelCollectable;
