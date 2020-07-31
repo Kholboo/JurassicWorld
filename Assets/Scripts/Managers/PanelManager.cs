@@ -52,9 +52,3 @@ public enum Panels
     LevelCompletePanel,
     GameOverPanel
 }
-
-public enum PanelState
-{
-    Open,
-    Close
-}
