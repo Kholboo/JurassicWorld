@@ -5,8 +5,24 @@ using UnityEngine.UI;
 
 public class GameOverPanel : MonoBehaviour
 {
+    public GameObject TryAgainText;
+    public GameObject replayButton;
+
+
+    void OnEnable()
+    {
+        StartCoroutine(WaitAndEnable(0.0f, TryAgainText));
+        StartCoroutine(WaitAndEnable(1.0f, replayButton));
+    }
+
     public void Replay()
     {
         GameManager.Instance.SetState(GameState.Replay);
+    }
+
+    IEnumerator WaitAndEnable(float _time, GameObject _gameObject)
+    {
+        yield return new WaitForSeconds(_time);
+        _gameObject.SetActive(true);
     }
 }
