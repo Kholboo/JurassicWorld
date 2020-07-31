@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44233507, g: 0.42037976, b: 0.47186604, a: 1}
+  m_IndirectSpecularColor: {r: 0.44233507, g: 0.4203798, b: 0.47186604, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -508,6 +508,8 @@ GameObject:
   - component: {fileID: 233121057}
   - component: {fileID: 233121056}
   - component: {fileID: 233121058}
+  - component: {fileID: 233121059}
+  - component: {fileID: 233121060}
   m_Layer: 5
   m_Name: HomePanel
   m_TagString: Untagged
@@ -584,6 +586,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eea7faccc8494bf5af8570d4e832a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 700980624}
+--- !u!225 &233121059
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233121054}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &233121060
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233121054}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9750bab9fd73197449a5cb3d1f2e4792, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &238405710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -975,7 +1009,7 @@ PrefabInstance:
     - target: {fileID: 2521732495339035391, guid: 209daa6f31ec1451a925f3e563bb6b14,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2521732495339035391, guid: 209daa6f31ec1451a925f3e563bb6b14,
         type: 3}
