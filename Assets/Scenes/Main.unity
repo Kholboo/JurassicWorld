@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44233507, g: 0.42037976, b: 0.47186604, a: 1}
+  m_IndirectSpecularColor: {r: 0.30570984, g: 0.9478481, b: 0.6939822, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,7 +233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225.7958, y: -75}
+  m_AnchoredPosition: {x: 224.41661, y: -75}
   m_SizeDelta: {x: 129, y: 129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &85681708
@@ -379,7 +379,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.25e-43, y: 1.6699653e+12, z: 8.25e-43, w: 0}
+  m_BoundingSphereOverride: {x: 216193.22, y: 2.2789206e+14, z: 211.37236, w: 827413600}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1401,8 +1401,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84.58322, y: -75}
-  m_SizeDelta: {x: 169.16644, y: 150}
+  m_AnchoredPosition: {x: 84.958305, y: -75}
+  m_SizeDelta: {x: 169.91661, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &692585213
 MonoBehaviour:
@@ -1482,7 +1482,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -20, y: -50}
-  m_SizeDelta: {x: 288.16644, y: 150}
+  m_SizeDelta: {x: 288.91663, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &785563287
 MonoBehaviour:
@@ -1944,7 +1944,6 @@ GameObject:
   - component: {fileID: 903439758}
   - component: {fileID: 903439760}
   - component: {fileID: 903439759}
-  - component: {fileID: 903439761}
   - component: {fileID: 903439762}
   m_Layer: 5
   m_Name: LevelCollectable
@@ -2009,18 +2008,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903439757}
   m_CullTransparentMesh: 0
---- !u!225 &903439761
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903439757}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!95 &903439762
 Animator:
   serializedVersion: 3
@@ -2536,7 +2523,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 8d67d0d379ee88742915c92d02565db4, type: 2}
+      objectReference: {fileID: 9100000, guid: 8730ffe26b5c14a49a68743705d7669c, type: 2}
     - target: {fileID: 3922897758806636030, guid: 6f7b5369816894107af7bd54e33b7e86,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2851,7 +2838,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -20, y: -50.000244}
-  m_SizeDelta: {x: 290.2958, y: 150}
+  m_SizeDelta: {x: 288.91663, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1433275757
 MonoBehaviour:
@@ -3114,8 +3101,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 85.6479, y: -75}
-  m_SizeDelta: {x: 171.2958, y: 150}
+  m_AnchoredPosition: {x: 84.958305, y: -75}
+  m_SizeDelta: {x: 169.91661, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788887189
 MonoBehaviour:
@@ -3169,7 +3156,6 @@ GameObject:
   - component: {fileID: 1873961171}
   - component: {fileID: 1873961170}
   - component: {fileID: 1873961172}
-  - component: {fileID: 1873961173}
   m_Layer: 5
   m_Name: LevelCompletedText
   m_TagString: Untagged
@@ -3257,18 +3243,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!225 &1873961173
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873961168}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1896475344
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,7 +3589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 223.66644, y: -75}
+  m_AnchoredPosition: {x: 224.41661, y: -75}
   m_SizeDelta: {x: 129, y: 129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2020689161

@@ -43,10 +43,11 @@ public class LevelCompletePanel : MonoBehaviour
 
         if (_gameObject.transform == levelCollectable.transform)
         {
+              _gameObject.SetActive(true);
+                StartCoroutine(SpreadCoins());
             if (GameManager.Instance.coinManager.LevelCoin > 0)
             {
-                _gameObject.SetActive(true);
-                StartCoroutine(SpreadCoins());
+              
             }
         }
         else
