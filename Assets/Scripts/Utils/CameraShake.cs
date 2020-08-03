@@ -19,11 +19,13 @@ public class CameraShake : MonoBehaviour {
             } else {
                 transform.localPosition = originalPos;
                 shaketrue = false;
+                GetComponent<CameraShake> ().enabled = false;
             }
         }
     }
 
     public void ShakeCamera (float duration, float amount) {
+        GetComponent<CameraShake> ().enabled = true;
         shakeDuration = duration;
         shakeAmount = amount;
         shaketrue = true;
