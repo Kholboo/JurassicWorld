@@ -33,8 +33,11 @@ public class LevelCompletePanel : MonoBehaviour
     IEnumerator UpdateCoinText()
     {
         yield return new WaitForSeconds(1.9f);
+
         GameManager.Instance.coinManager.UpdateCoin(GameManager.Instance.coinManager.LevelCoin);
         totalCoinText.text = GameManager.Instance.coinManager.GetTotalCoin().ToString();
+        
+        replayButton.GetComponent<Button>().interactable = true;
     }
 
     IEnumerator WaitAndEnable(float _time, GameObject _gameObject)
@@ -43,11 +46,14 @@ public class LevelCompletePanel : MonoBehaviour
 
         if (_gameObject.transform == levelCollectable.transform)
         {
-              _gameObject.SetActive(true);
-                StartCoroutine(SpreadCoins());
             if (GameManager.Instance.coinManager.LevelCoin > 0)
             {
-              
+                _gameObject.SetActive(true);
+                StartCoroutine(SpreadCoins());
+            }
+            else
+            {
+                replayButton.GetComponent<Button>().interactable = true;
             }
         }
         else
