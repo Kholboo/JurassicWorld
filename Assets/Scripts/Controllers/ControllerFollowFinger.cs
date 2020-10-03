@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
 public class ControllerFollowFinger : MonoBehaviour {
     [Range (1.0f, 20.0f)]
@@ -51,13 +51,13 @@ public class ControllerFollowFinger : MonoBehaviour {
     [CustomValueDrawer ("AngleY")]
     [InfoBox ("Rotate Y to Holder (0, 90)",InfoMessageType.None)]
     public float roteteAngleY;
-    private float AngleY (float value, GUIContent label) {
-        if (parentChild != null) {
-            parentChild.transform.eulerAngles = new Vector3 (0, value, 0);
+    // private float AngleY (float value, GUIContent label) {
+    //     if (parentChild != null) {
+    //         parentChild.transform.eulerAngles = new Vector3 (0, value, 0);
 
-        }
-        return EditorGUILayout.Slider (value, 0f, 90f);;
-    }
+    //     }
+    //     return EditorGUILayout.Slider (value, 0f, 90f);;
+    // }
 
     private void CreateIndicator () {
         roteteAngleY = 0;
