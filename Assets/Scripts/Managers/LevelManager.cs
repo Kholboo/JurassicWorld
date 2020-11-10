@@ -17,15 +17,25 @@ public class LevelManager : MonoBehaviour
     [ShowIf("hasBonusLevel", true)]
     public int bonusLevelStep = 3;
 
+    void Start()
+    {
+        SpawnLevel();
+    }
+
     public void SpawnLevel()
     {
-        if (CheckBonusLevel())
+        if (levels.Count > 0)
         {
-            Instantiate(bonusLevels[FindLevelIndex()], Vector3.zero, Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(levels[FindLevelIndex()], Vector3.zero, Quaternion.identity);
+            GameObject currentLevel = null;
+
+            if (CheckBonusLevel())
+            {
+                currentLevel = Instantiate(bonusLevels[FindLevelIndex()], Vector3.zero, Quaternion.identity);
+            }
+            else
+            {
+                currentLevel = Instantiate(levels[FindLevelIndex()], Vector3.zero, Quaternion.identity);
+            }
         }
     }
 
