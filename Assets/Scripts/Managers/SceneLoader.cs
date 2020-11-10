@@ -26,7 +26,7 @@ public class SceneLoader : MonoBehaviour
         {
             float progress = async.progress / 0.9f;
             loadingSlider.fillAmount = progress;
-            loadingProgressText.text = (progress * 100.0f + "%").ToString();
+            loadingProgressText.text = (Mathf.Round(progress * 100.0f) + "%").ToString();
 
             if (async.progress >= 0.9f)
             {
