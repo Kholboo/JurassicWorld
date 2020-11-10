@@ -36,7 +36,7 @@ public class LevelCompletePanel : MonoBehaviour
 
         GameManager.Instance.coinManager.UpdateCoin(GameManager.Instance.coinManager.LevelCoin);
         totalCoinText.text = GameManager.Instance.coinManager.GetTotalCoin().ToString();
-        
+
         replayButton.GetComponent<Button>().interactable = true;
     }
 

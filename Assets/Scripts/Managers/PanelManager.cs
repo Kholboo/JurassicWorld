@@ -8,6 +8,7 @@ public class PanelManager : MonoBehaviour
     public GameObject hudPanel;
     public GameObject levelCompletePanel;
     public GameObject gameOverPanel;
+    public GameObject chestPanel;
 
     public void ChangeState(Panels panel, bool state = true, float delay = 0.0f)
     {
@@ -38,6 +39,9 @@ public class PanelManager : MonoBehaviour
             case Panels.GameOverPanel:
                 _panel = gameOverPanel;
                 break;
+            case Panels.ChestPanel:
+                _panel = chestPanel;
+                break;
         }
 
         return _panel;
@@ -49,5 +53,6 @@ public enum Panels
     HomePanel,
     HUDPanel,
     LevelCompletePanel,
-    GameOverPanel
+    GameOverPanel,
+    ChestPanel,
 }

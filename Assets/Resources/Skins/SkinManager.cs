@@ -27,7 +27,7 @@ public class SkinManager : MonoBehaviour
 
         instance = this;
 
-        ChangeSkin(1);
+        ChangeSkin(0);
     }
 
     public void ChangeSkin(int index)
