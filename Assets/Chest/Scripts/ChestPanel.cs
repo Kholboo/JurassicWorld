@@ -9,7 +9,8 @@ public class ChestPanel : MonoBehaviour
     public List<ChestUI> chests = new List<ChestUI>();
     public List<GameObject> keys = new List<GameObject>();
     public GameObject keysContainer;
-    public GameObject nextButton;
+    public GameObject noThanksButton;
+    public GameObject additionalKeyButton;
     public GameObject spreadTarget;
     public Text coinText;
     public int bestPrizeCount = 1;
@@ -78,8 +79,18 @@ public class ChestPanel : MonoBehaviour
             }
             else
             {
-                StartCoroutine(ChangeActive(0.75f, keysContainer, false));
-                StartCoroutine(ChangeActive(1.0f, nextButton, true));
+                if (AllChestsUnlocked())
+                {
+                    StartCoroutine(Replay(2.5f));
+                }
+                else
+                {
+                    StartCoroutine(KeysFade(0, 0.5f));
+                    StartCoroutine(SetKeysScaleDefault(1.0f));
+                    StartCoroutine(ChangeActive(1.0f, keysContainer, false));
+                    StartCoroutine(ChangeActive(1.0f, additionalKeyButton, true));
+                    StartCoroutine(ChangeActive(1.0f, noThanksButton, true));
+                }
             }
         }
     }
@@ -99,6 +110,11 @@ public class ChestPanel : MonoBehaviour
         }
     }
 
+    bool AllChestsUnlocked()
+    {
+        return chests.Count == chests.FindAll(c => c.IsOpenned).Count;
+    }
+
     public void SetDefault()
     {
         coinText.text = GameManager.Instance.coinManager.GetTotalCoin().ToString();
@@ -107,11 +123,59 @@ public class ChestPanel : MonoBehaviour
         {
             runIdle = true;
         }
+
         StartCoroutine(RunAnimation());
     }
 
-    public void OnClickNextButton()
+    public void NoThanks()
     {
+        StartCoroutine(Replay(0.0f));
+    }
+
+
+    void CallbackHandler()
+    {
+        StartCoroutine(ChangeActive(0.0f, keysContainer, true));
+        StartCoroutine(ChangeActive(0.0f, additionalKeyButton, false));
+        StartCoroutine(ChangeActive(0.0f, noThanksButton, false));
+        StartCoroutine(KeysFade(1, 0.5f));
+
+        keyCount = 3;
+
+        StartCoroutine(ChangeInteractable(true));
+    }
+
+    IEnumerator SetKeysScaleDefault(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        for (int i = 0; i < keys.Count; i++)
+        {
+            keys[i].GetComponent<Animator>().SetInteger("state", 0);
+            keys[i].transform.GetChild(0).transform.localScale = Vector3.one;
+        }
+    }
+
+    IEnumerator KeysFade(float targetValue, float duration)
+    {
+        float startValue = keysContainer.GetComponent<CanvasGroup>().alpha;
+        float time = 0;
+
+        while (time < duration)
+        {
+            keysContainer.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(startValue, targetValue, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        keysContainer.GetComponent<CanvasGroup>().alpha = targetValue;
+    }
+
+
+    IEnumerator Replay(float time)
+    {
+        yield return new WaitForSeconds(time);
+
         PlayerPrefs.SetInt("Key", 0);
         GameManager.Instance.SetState(GameState.Replay);
     }
