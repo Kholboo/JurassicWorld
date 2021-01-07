@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MoreMountains.NiceVibrations;
+// using MoreMountains.NiceVibrations;
 
 public class TapticManager : MonoBehaviour
 {
@@ -27,8 +27,15 @@ public class TapticManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            MMVibrationManager.Haptic(type);
+            // MMVibrationManager.Haptic(type);
             yield return new WaitForSeconds(delay);
         }
     }
+}
+
+public enum HapticTypes { 
+    MediumImpact,
+    HeavyImpact,
+    Failure, 
+    Success,
 }
