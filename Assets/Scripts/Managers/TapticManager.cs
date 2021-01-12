@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.NiceVibrations;
-
 public class TapticManager : MonoBehaviour
 {
     public void ImpactPattern(HapticTypes type)
