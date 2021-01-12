@@ -76,7 +76,7 @@ namespace MoreMountains.NiceVibrations
                 string pbxProjectPath = PBXProject.GetPBXProjectPath(path);
                 PBXProject pbxProject = new PBXProject();
                 pbxProject.ReadFromString(File.ReadAllText(pbxProjectPath));
-                string unityTargetName = pbxProject.GetUnityFrameworkTargetGuid();
+                string unityTargetName = PBXProject.GetUnityTargetName();
                 string targetGUID = pbxProject.TargetGuidByName(unityTargetName);
 
                 pbxProject.AddFrameworkToProject(targetGUID, "CoreHaptics.framework", false);
