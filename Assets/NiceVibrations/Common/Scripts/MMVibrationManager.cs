@@ -7,6 +7,7 @@ using System;
 #if UNITY_IOS
 using UnityEngine.iOS;
 #endif
+
 public enum HapticTypes { Selection, Success, Warning, Failure, LightImpact, MediumImpact, HeavyImpact, RigidImpact, SoftImpact, None }
 
 namespace MoreMountains.NiceVibrations
