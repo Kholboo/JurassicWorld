@@ -1916,7 +1916,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881864103 stripped
 GameObject:
@@ -2414,7 +2414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1166812023
 GameObject:
@@ -2698,6 +2698,151 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1177194937}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1252678988
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100038, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Name
+      value: ScreenshotManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_DestinationFolder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_ResolutionCaptureMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[0].m_Ratio
+      value: 207:448
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[0].m_Width
+      value: 1242
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[1].m_Ratio
+      value: 9:16
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[1].m_Width
+      value: 1242
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[2].m_Ratio
+      value: 512:683
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[2].m_Width
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[0].m_Height
+      value: 2688
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[1].m_Height
+      value: 2208
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[2].m_Height
+      value: 2732
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[0].m_Category
+      value: iPhone
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[0].m_FileName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[1].m_Category
+      value: iPhone
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[2].m_Category
+      value: iPhone
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[0].m_Orientation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[1].m_Orientation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[2].m_Orientation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[0].m_ResolutionName
+      value: Max
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[1].m_ResolutionName
+      value: Plus
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400048, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
+      propertyPath: m_Config.m_Resolutions.Array.data[2].m_ResolutionName
+      value: iPad
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17f70b34ca78a8843aeba4110051a266, type: 3}
 --- !u!1 &1358734737
 GameObject:
   m_ObjectHideFlags: 0

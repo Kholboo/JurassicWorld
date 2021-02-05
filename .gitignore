@@ -8,6 +8,7 @@ Assets/AssetStoreTools*
 UIElementsSchema/
 Screenshots/
 Recordings/
+UserSettings/
 
 # Visual Studio cache directory
 .vs/
