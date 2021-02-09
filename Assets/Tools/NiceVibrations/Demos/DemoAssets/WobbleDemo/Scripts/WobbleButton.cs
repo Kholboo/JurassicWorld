@@ -176,7 +176,9 @@ namespace MoreMountains.NiceVibrations
 
             TargetAnimator.SetTrigger(_sparkAnimationParameter);
             SpringAudioSource.Play();
-            MMVibrationManager.AdvancedHapticPattern(AHAPFile.text, _wobbleAndroidPattern, _wobbleAndroidAmplitude, -1, HapticTypes.LightImpact);
+            MMVibrationManager.AdvancedHapticPattern(AHAPFile.text, _wobbleAndroidPattern, _wobbleAndroidAmplitude, -1,
+                                                        _wobbleAndroidPattern, _wobbleAndroidAmplitude, _wobbleAndroidAmplitude, -1, HapticTypes.LightImpact, 
+                                                        this);
         }
 
         protected virtual float Remap(float x, float A, float B, float C, float D)

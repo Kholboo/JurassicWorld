@@ -70,9 +70,8 @@ namespace MoreMountains.NiceVibrations
                 {
                     _carStarted = true;
                     _carStartedAt = Time.time;
-                    //MMVibrationManager.Haptic(HapticTypes.Success);
                     _lastStartClickAt = Time.time;
-                    MMVibrationManager.ContinuousHaptic(_knobValue, _knobValue, MaximumPowerDuration, HapticTypes.MediumImpact, this);
+                    MMVibrationManager.ContinuousHaptic(_knobValue, _knobValue, MaximumPowerDuration, HapticTypes.MediumImpact, this, false, -1, false);
                     CarEngineAudioSource.Play();
                 }
                 else
@@ -111,7 +110,7 @@ namespace MoreMountains.NiceVibrations
                         Power -= Time.deltaTime;
                         Power = Mathf.Clamp(Power, 0f, MaximumPowerDuration);
 
-                        MMNViOSCoreHaptics.UpdateContinuousHapticPatternRational(_knobValue, _knobValue);
+                        MMVibrationManager.UpdateContinuousHaptic(_knobValue, _knobValue, true);
 
                         if (Power <= 0f)
                         {
@@ -125,7 +124,7 @@ namespace MoreMountains.NiceVibrations
                     {
                         _carStarted = false;
                         _lastStartClickAt = Time.time;
-                        MMVibrationManager.StopContinuousHaptic();
+                        MMVibrationManager.StopContinuousHaptic(true);
                     }
                 }
             }

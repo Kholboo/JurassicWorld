@@ -59,55 +59,55 @@ namespace MoreMountains.NiceVibrations
 
         public virtual void SelectionButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.Selection);
+            MMVibrationManager.Haptic(HapticTypes.Selection, false, true, this);
             ChangeImage(SelectionSprite);
         }
 
         public virtual void SuccessButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.Success);
+            MMVibrationManager.Haptic(HapticTypes.Success, false, true, this);
             ChangeImage(SuccessSprite);
         }
 
         public virtual void WarningButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.Warning);
+            MMVibrationManager.Haptic(HapticTypes.Warning, false, true, this);
             ChangeImage(WarningSprite);
         }
 
         public virtual void FailureButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.Failure);
+            MMVibrationManager.Haptic(HapticTypes.Failure, false, true, this);
             ChangeImage(FailureSprite);
         }
 
         public virtual void RigidButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.RigidImpact);
+            MMVibrationManager.Haptic(HapticTypes.RigidImpact, false, true, this);
             ChangeImage(RigidSprite);
         }
 
         public virtual void SoftButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.SoftImpact);
+            MMVibrationManager.Haptic(HapticTypes.SoftImpact, false, true, this);
             ChangeImage(SoftSprite);
         }
 
         public virtual void LightButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.LightImpact);
+            MMVibrationManager.Haptic(HapticTypes.LightImpact, false, true, this);
             ChangeImage(LightSprite);
         }
 
         public virtual void MediumButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+            MMVibrationManager.Haptic(HapticTypes.MediumImpact, false, true, this);
             ChangeImage(MediumSprite);
         }
 
         public virtual void HeavyButton()
         {
-            MMVibrationManager.Haptic(HapticTypes.HeavyImpact);
+            MMVibrationManager.Haptic(HapticTypes.HeavyImpact, false, true, this);
             ChangeImage(HeavySprite);
         }
     }

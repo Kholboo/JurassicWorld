@@ -73,8 +73,9 @@ namespace MoreMountains.NiceVibrations
                 TargetCurve.Move = false;
                 if (_continuousActive)
                 {
+                    MMVibrationManager.StopContinuousHaptic(true);
                     OnHapticsStopped();
-                }                
+                }
             }
             if ((_sharpnessLastFrame != ContinuousSharpness) || (_intensityLastFrame != ContinuousIntensity))
             {
@@ -111,7 +112,7 @@ namespace MoreMountains.NiceVibrations
         {
             if (_continuousActive)
             {
-                MMNViOSCoreHaptics.UpdateContinuousHapticPatternRational(ContinuousIntensity, ContinuousSharpness);
+                MMVibrationManager.UpdateContinuousHaptic(ContinuousIntensity, ContinuousSharpness, true, -1, true);
                 DebugAudioContinuous.volume = ContinuousIntensity;
                 DebugAudioContinuous.pitch = 0.5f + ContinuousSharpness / 2f;
             }
@@ -122,7 +123,7 @@ namespace MoreMountains.NiceVibrations
             if (!_continuousActive)
             {
                 // START
-                MMVibrationManager.ContinuousHaptic(ContinuousIntensity, ContinuousSharpness, ContinuousDuration, HapticTypes.LightImpact, this);
+                MMVibrationManager.ContinuousHaptic(ContinuousIntensity, ContinuousSharpness, ContinuousDuration, HapticTypes.LightImpact, this, true, -1, true);
                 _timeLeft = ContinuousDuration;
                 ContinuousButtonText.text = "Stop continuous haptic pattern";
                 DurationSlider.interactable = false;
@@ -132,7 +133,7 @@ namespace MoreMountains.NiceVibrations
             else
             {
                 // STOP
-                MMVibrationManager.StopContinuousHaptic();
+                MMVibrationManager.StopContinuousHaptic(true);
                 ResetPlayState();
             }
         }
@@ -172,8 +173,8 @@ namespace MoreMountains.NiceVibrations
         protected virtual void OnDisable()
         {
             MMNViOSCoreHaptics.OnHapticPatternStopped -= OnHapticsStopped;
-            MMNViOSCoreHaptics.OnHapticPatternError += OnHapticsError;
-            MMNViOSCoreHaptics.OnHapticPatternReset += OnHapticsReset;
+            MMNViOSCoreHaptics.OnHapticPatternError -= OnHapticsError;
+            MMNViOSCoreHaptics.OnHapticPatternReset -= OnHapticsReset;
         }
     }
 }

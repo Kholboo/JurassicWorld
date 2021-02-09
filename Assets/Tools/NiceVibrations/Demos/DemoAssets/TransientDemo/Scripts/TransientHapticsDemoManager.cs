@@ -41,7 +41,7 @@ namespace MoreMountains.NiceVibrations
 
         public virtual void TransientHapticsButton()
         {
-            MMVibrationManager.TransientHaptic(TransientIntensity, TransientSharpness);
+            MMVibrationManager.TransientHaptic(TransientIntensity, TransientSharpness, true, this);
             StartCoroutine(Logo.Shake(0.2f));
             DebugAudioTransient.volume = TransientIntensity;
             DebugAudioTransient.pitch = 0.5f + TransientSharpness / 2f;
