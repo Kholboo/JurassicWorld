@@ -54,6 +54,6 @@ public class UICoin : MonoBehaviour
         isSpread = false;
         yield return new WaitForSeconds(randomDelay);
         animator.Play("CollectableScale");
-        GameManager.Instance.tapticManager.Impact(HapticTypes.HeavyImpact);
+        GameManager.Instance.tapticManager.Impact(HapticTypes.LightImpact);
     }
 }

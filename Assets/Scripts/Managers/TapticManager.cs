@@ -12,7 +12,7 @@ public class TapticManager : MonoBehaviour
                 Impact(HapticTypes.Failure);
                 break;
             case HapticTypes.Success:
-                Impact(HapticTypes.HeavyImpact, 0.1f, 10);
+                Impact(HapticTypes.LightImpact, 0.1f, 5);
                 break;
         }
     }
