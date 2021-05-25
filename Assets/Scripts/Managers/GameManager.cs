@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 60;
-
+        Input.multiTouchEnabled = false;
+        
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
