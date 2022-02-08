@@ -19,10 +19,7 @@ public class ControllerJoystickSmooth : MonoBehaviour
     [HideIf("controllerDirection", ControllerDirection.Both)]
     [BoxGroup("Float Values")]
     public float range = 5f;
-    void Start()
-    {
-        HUDPanel.LevelStart += FindJoystick;
-    }
+    
     void FindJoystick()
     {
         joystick = GameObject.FindObjectOfType<DynamicJoystick>();
