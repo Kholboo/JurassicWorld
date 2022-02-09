@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public LevelManager levelManager;
     [HideInInspector]
-    public ScoreManager scoreManager;
-    [HideInInspector]
     public CoinManager coinManager;
     [HideInInspector]
     public TapticManager tapticManager;
@@ -41,7 +39,6 @@ public class GameManager : MonoBehaviour
 
         panelManager = GetComponent<PanelManager>();
         levelManager = GetComponent<LevelManager>();
-        scoreManager = GetComponent<ScoreManager>();
         coinManager = GetComponent<CoinManager>();
         tapticManager = GetComponent<TapticManager>();
         fileManager = GetComponent<FileManager>();
