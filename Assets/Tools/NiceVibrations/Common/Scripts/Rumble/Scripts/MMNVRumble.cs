@@ -13,20 +13,20 @@ namespace MoreMountains.NiceVibrations
         /// whether or not we're playing a continuous rumble right now
         public static bool RumblingContinuous = false;
 
-        public static Gamepad GetGamepad(int id)
+        public static UnityEngine.InputSystem.Gamepad GetGamepad(int id)
         {
             if (id != -1)
             {
-                if (id >= Gamepad.all.Count)
+                if (id >= UnityEngine.InputSystem.Gamepad.all.Count)
                 {
-                    return Gamepad.current;
+                    return UnityEngine.InputSystem.Gamepad.current;
                 }
                 else
                 {
-                    return Gamepad.all[id];
+                    return UnityEngine.InputSystem.Gamepad.all[id];
                 }                
             }
-            return Gamepad.current;
+            return UnityEngine.InputSystem.Gamepad.current;
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace MoreMountains.NiceVibrations
             float currentTime = startedAt;
             int currentIndex = 0;
             
-            Gamepad currentGamepad = GetGamepad(controllerID);
+            UnityEngine.InputSystem.Gamepad currentGamepad = GetGamepad(controllerID);
             
             while (currentIndex < pattern.Length)
             {

@@ -1,7 +1,7 @@
 A more user friendly doc is available at http://nice-vibrations-docs.moremountains.com/
 Find out more about the asset at http://nice-vibrations.moremountains.com/
 
-Nice Vibrations v3.8.1
+Nice Vibrations v3.9
 
 ## WHAT'S IN THE ASSET ? 
 -------------------------

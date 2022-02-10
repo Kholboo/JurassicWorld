@@ -33,7 +33,6 @@ namespace MoreMountains.NiceVibrations
     ///
     /// In addition, this class will also let you trigger core haptics on supported devices running recent versions of iOS (after iOS 13).
     /// These let you trigger transient or continuous haptics, or play AHAP based JSON strings for even more control.
-	///
 	/// </summary>
 	public static class MMVibrationManager
 	{
@@ -111,6 +110,10 @@ namespace MoreMountains.NiceVibrations
         {
             DebugLog("[MMVibrationManager] Set haptics active : "+status);
             _vibrationsActive = status;
+            if (!status)
+            {
+                MMVibrationManager.StopContinuousHaptic(true);    
+            }
         }
 
         /// <summary>
