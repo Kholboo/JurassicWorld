@@ -50,13 +50,17 @@ public class LevelCompletePanel : MonoBehaviour {
         int totalCoin = GameManager.Instance.coinManager.GetTotalCoin ();
         GameManager.Instance.coinManager.UpdateCoin (coin, false, true);
 
-        int sub = coin - 25;
+        int additional = 25;
+        int sub = 0;
 
-        if (coin > 25) {
+        if (coin < 25) {
+            additional = coin;
+        } else {
+            sub = coin - 25;
             totalCoinText.text = (totalCoin + sub).ToString ();
         }
 
-        for (int i = 1; i <= 25; i++) {
+        for (int i = 1; i <= additional; i++) {
             totalCoinText.text = (totalCoin + sub + i).ToString ();
             yield return new WaitForSeconds (0.01f);
         }

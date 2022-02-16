@@ -1169,7 +1169,6 @@ MonoBehaviour:
   gameState: 0
   panelManager: {fileID: 0}
   levelManager: {fileID: 0}
-  scoreManager: {fileID: 0}
   coinManager: {fileID: 0}
   tapticManager: {fileID: 0}
   fileManager: {fileID: 0}
