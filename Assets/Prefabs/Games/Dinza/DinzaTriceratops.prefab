@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 6321885489751428003}
   - component: {fileID: 8606185314943148577}
   m_Layer: 0
-  m_Name: DinzaStyracosaurus
+  m_Name: DinzaTriceratops
   m_TagString: Dinza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
