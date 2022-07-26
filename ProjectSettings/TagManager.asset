@@ -9,6 +9,8 @@ TagManager:
   - Target
   - Canvas
   - Coin
+  - Floor
+  - Dinza
   layers:
   - Default
   - TransparentFX
