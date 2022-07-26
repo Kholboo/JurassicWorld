@@ -1,29 +1,14 @@
 fileFormatVersion: 2
-guid: 6ae31b399dbf240ffb704d4455a6c153
+guid: 07fbed9eed4bc423ebcd0cdbf96b8b63
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -5395817564715094873
-    second: apatosaurus_drink
-  - first:
-      74: 8264827969353551721
-    second: apatosaurus_idle
-  - first:
-      74: -8275529797669988549
-    second: apatosaurus_roar
-  - first:
-      74: -1551004754309991841
-    second: apatosaurus_run
-  - first:
-      74: -5943663715438170387
-    second: apatosaurus_walk
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: apatosaurus_d
-    second: {fileID: 2100000, guid: 65e5b6525ec794a25b09ba1565c418c3, type: 2}
+      name: Mat.2
+    second: {fileID: 2100000, guid: eb30dd334ad1a47cca286ff53a7cbeed, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -51,10 +36,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 30
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -105,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 30
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

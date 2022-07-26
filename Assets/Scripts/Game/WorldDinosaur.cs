@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WorldDinosaur : MonoBehaviour {
     [SerializeField] private Dinza[] dinosaurs;
-    [SerializeField] private GameObject prefabToPoint;
+    [SerializeField] private GameObject prefabToPoint;    
     private bool isToched;
     private Dinza selectDinza;
     public void Init () {
