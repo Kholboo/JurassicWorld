@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class WorldDinosaur : MonoBehaviour {
     [SerializeField] private Dinza[] dinosaurs;
-    [SerializeField] private GameObject toPoint;
+    [SerializeField] private GameObject prefabToPoint;
     private bool isToched;
-    private Vector3 posTo;
     private Dinza selectDinza;
     public void Init () {
         int length = dinosaurs.Length;
@@ -23,21 +22,25 @@ public class WorldDinosaur : MonoBehaviour {
             if (Physics.Raycast (ray, out hit, 100)) {
                 // Debug.Log (hit.transform.name);
                 if (hit.transform.tag == "Floor") {
-                    posTo = hit.point;
+                    Vector3 posTo = hit.point;
                     posTo.y = 0;
                     if (selectDinza != null) {
-                        toPoint.transform.position = posTo;
-                        selectDinza.Walk (toPoint.transform);
+                        selectDinza.posTo.transform.position = posTo;
+                        selectDinza.Walk ();
                         selectDinza = null;
                     }
                 }
                 if (hit.transform.tag == "Dinza") {
                     selectDinza = hit.transform.GetComponent<Dinza> ();
+                    if(selectDinza.posTo == null) selectDinza.posTo = getToPoint ();
                 }
             }
         }
         if (Input.GetMouseButtonUp (0)) {
             isToched = false;
         }
+    }
+    private GameObject getToPoint () {
+        return Instantiate (prefabToPoint, selectDinza.transform.position, Quaternion.identity);
     }
 }

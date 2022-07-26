@@ -7,19 +7,19 @@ using UnityEngine.PlayerLoop;
 public class Dinza : MonoBehaviour {
     [SerializeField] private Animator animator;
     private int eventID;
-    private Transform posTo;
+    public GameObject posTo;
     private float speed = 3, speedRotate = 100;
     public void Init () {
+        transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
         Idle ();
     }
     private void AnimateType (int _id) {
         animator.SetInteger ("state", _id);
     }
-    public void Walk (Transform _posTo) {
-        posTo = _posTo;
+    public void Walk () {
         eventID = 1;
         AnimateType (1);
-        StartCoroutine (DoRotationAtTargetDirection (posTo));
+        StartCoroutine (DoRotationAtTargetDirection (posTo.transform));
     }
     public void Run () {
         eventID = 2;
@@ -46,11 +46,11 @@ public class Dinza : MonoBehaviour {
     }
     private void Update () {
         if (eventID == 1) {
-            transform.position = Vector3.MoveTowards (transform.position, posTo.position, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards (transform.position, posTo.transform.position, Time.deltaTime * speed);
             // transform.Translate (posTo * speed * Time.deltaTime);            
-            float dist = Vector3.Distance (transform.position, posTo.position);
+            float dist = Vector3.Distance (transform.position, posTo.transform.position);
             if (dist < 0.1f) {
-                transform.position = posTo.position;
+                transform.position = posTo.transform.position;
                 Idle ();
             }
         }
