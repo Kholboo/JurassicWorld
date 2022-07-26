@@ -19,7 +19,7 @@ public class ControllerJoystickSmooth : MonoBehaviour
     [HideIf("controllerDirection", ControllerDirection.Both)]
     [BoxGroup("Float Values")]
     public float range = 5f;
-    
+    private bool isStart;
     void FindJoystick()
     {
         joystick = GameObject.FindObjectOfType<DynamicJoystick>();
@@ -28,7 +28,8 @@ public class ControllerJoystickSmooth : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Instance.CheckState(GameState.Play))
+        // if (GameManager.Instance.CheckState(GameState.Play))
+        if(isStart)
         {
             switch (controllerDirection)
             {
