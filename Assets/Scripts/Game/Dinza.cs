@@ -15,8 +15,11 @@ public class Dinza : MonoBehaviour {
         Idle ();
         if (autoRotate)
             transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
-        if (animateID != 0)
+        if (animateID != 0 && posTo == null)
             AnimateType (animateID);
+        if(posTo != null)
+            Walk();
+
     }
     private void AnimateType (int _id) {
         print("animate: "+_id);
@@ -32,9 +35,11 @@ public class Dinza : MonoBehaviour {
         AnimateType (2);
     }
     public void Roar () {
+        eventID = 0;
         AnimateType (3);
     }
     public void Angry () {
+        eventID = 0;
         AnimateType (4);
     }
     private void Idle () {
@@ -58,7 +63,8 @@ public class Dinza : MonoBehaviour {
             float dist = Vector3.Distance (transform.position, posTo.transform.position);
             if (dist < 0.1f) {
                 transform.position = posTo.transform.position;
-                Idle ();
+                if(animateID == 0) Idle ();
+                else AnimateType (animateID);
             }
         }
     }
