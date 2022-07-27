@@ -6,24 +6,14 @@ using UnityEngine;
 public class MainController : MonoBehaviour {
     [SerializeField] private WorldDinosaur worldDinosaur;
     float countTime, countAnimateTime;
+    private void Awake() {
+        Application.targetFrameRate = 60;    
+    }
     void Start () {
         worldDinosaur.Init ();
 
     }
-
-    // Update is called once per frame
     void Update () {
-        // countTime += Time.deltaTime;
-        // if(countTime > 2)
-        // {
-        //     dinza.Walk();
-        //     countAnimateTime += Time.deltaTime;
-        //     if(countAnimateTime > 5)
-        //     {
-        //         dinza.Run();
-        //         countTime = 0;
-        //         countAnimateTime = 0;
-        //     }
-        // }
+       
     }
 }
