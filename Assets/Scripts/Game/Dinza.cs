@@ -11,23 +11,26 @@ public class Dinza : MonoBehaviour {
     [SerializeField] private bool autoRotate = true;
     [SerializeField] private int animateID;
     [SerializeField] private CinemachineVirtualCamera fCamera;
-    private int eventID;
+    [SerializeField] private GameObject canvasSelect;
     public GameObject posTo;
+    private int eventID;
     public float speed = 3, speedRotate = 100;
     public void Init () {
-        if(fCamera != null) fCamera.enabled = false;
+        if (fCamera != null) fCamera.enabled = false;
         Idle ();
         if (autoRotate)
             transform.rotation = Quaternion.Euler (0, Random.Range (0, 360), 0);
         if (animateID != 0 && posTo == null)
             AnimateType (animateID);
+        canvasSelect.SetActive (false);
     }
     private void AnimateType (int _id) {
         print ("animate: " + _id);
         animator.SetInteger ("state", _id);
     }
     public void Walk (bool _start = false) {
-        // eventID = 1;        
+        // eventID = 1;
+        canvasSelect.SetActive (false);
         AnimateType (1);
         if (!_start) StartCoroutine (DoRotationAtTargetDirection (posTo.transform));
     }
@@ -66,11 +69,14 @@ public class Dinza : MonoBehaviour {
                 transform.position = posTo.transform.position;
                 if (animateID == 0) Idle ();
                 else AnimateType (animateID);
+                MainController._mc.validSelect = true;
             }
         }
     }
-    public void CameraSee(bool _show)
-    {
-        if(fCamera != null) fCamera.enabled = _show;
+    public void CameraSee (bool _show) {
+        if (fCamera != null) fCamera.enabled = _show;
+    }
+    public void SelectObject (bool _val) {
+        canvasSelect.SetActive (_val);
     }
 }
