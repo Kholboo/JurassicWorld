@@ -17,7 +17,7 @@ public class WorldDinosaur : MonoBehaviour {
         }
     }
     private void Update () {
-        if(!MainController._mc.validSelect) return;
+        // if(!MainController._mc.validSelect) return;
         if (Input.GetMouseButton (0) && !isToched) {
             isToched = true;
             Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
